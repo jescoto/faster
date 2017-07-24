@@ -1,0 +1,61 @@
+<style>
+    .k-grid tbody tr {
+        cursor: move;
+    }
+</style>
+<!-- Standard SignUp Wizard view -->
+<div class="modal fade" id="peopleEditModal" tabindex="-1" role="dialog" aria-labelledby="peopleEditModal">
+    <div class="modal-dialog staff-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                People Widget Editor (Staff)
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="peopleEditModal-title">Title</label>
+                        <input type="text" class="form-control" id="peopleEditModal-title"  data-bind="value: title"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="peopleEditModal-description">Description</label>
+                        <input type="text" class="form-control" id="peopleEditModal-description"  data-bind="value: description"/>
+                    </div>
+                    <div class="form-group checkbox">
+                        <label for="peopleEditModal-photos">
+                            <input type="checkbox" id="peopleEditModal-photos" value="false" data-bind="checked: hasPhotos"/>
+                            Include Profile Photos (Show Profile Photo)
+                        </label>
+                    </div>
+                    <div class="form-group checkbox">
+                        <label for="peopleEditModal-peoplecards">
+                            <input type="checkbox" id="peopleEditModal-peoplecards" value="false" data-bind="checked: hasPeopleCard"/>
+                            Enable People Cards (Show People Card Link)
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="peopleEditModal-people">Person's Name</label><br>
+                        <input type="text" class="form-control" id="peopleEditModal-people" />
+                    </div>
+                </form>
+                <div class="gh-peopleEdit gh-drag-list hidden">
+                    <div class="peopleEditModal-titleBar">
+                        <span class="pull-left">Active Members</span>
+                        <span class="pull-right">(Drag n Drop to reorder)</span>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div id="peopleEdit-peopleList" class="well"></div>
+
+                </div>
+
+                <div id="peopleEditModal-grid" class="hidden"></div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" type="button" onclick="peopleEditor.close()">Cancel</button>
+                <button class="btn-primary btn" type="button" onclick="peopleEditor.doSave()" id="peopleEditModal-save">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

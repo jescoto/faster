@@ -1,0 +1,14 @@
+<div id="gh-banner">
+    <div class="container">
+        <p class="text-clamp pull-left">
+            <span data-bind="html: icon"></span>
+            <span data-bind="text: name"></span>
+            <span data-bind="text: message"></span>...
+            <button class="btn gh-banner-action" data-bind="click: clickHandler">more info</button>
+        </p>
+        <button class="btn pull-right" onclick="ghBannerBar.onDismiss()">
+            <i class="material-icons">close</i>
+        </button>
+        <div class="clearfix"></div>
+    </div>
+</div>

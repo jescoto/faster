@@ -1,0 +1,728 @@
+@import (reference) "helpers/brand-colors";
+@import (reference) "typography";
+@import (reference) "helpers/shadowHelper";
+@import (reference) "helpers/media-queries";
+
+/* FF Elements */
+.ff-card-contributor {
+  height: 54px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid @brand-line-color;
+  display: inline-block;
+  .ff-contributor-img {
+    height: 100%;
+    width: auto;
+    float: left;
+    border-radius: 4px 0 0 4px;
+  }
+  .ff-contributor-info {
+    float: left;
+  }
+  .ff-contributor-name,
+  .ff-contributor-title {
+    padding: 0 0.5em;
+    margin-bottom: 0;
+  }
+  .ff-contributor-name {
+    font-size: @text-regular;
+  }
+  .ff-contributor-title {
+    font-size: @text-small;
+    color: @brand-grey-200;
+  }
+}
+.ff-card-contributor:after {
+  clear: both;
+}
+
+.ff-card-contributor-sm {
+  .ff-card-contributor;
+  height: 48px;
+  .ff-contributor-name {
+    line-height: 48px;
+  }
+}
+
+#ff-glossary-list-container {
+  width: 225px;
+}
+
+#ff-glossary-current {
+  padding: 1em;
+  .glossary-term-title {
+    font-size: @text-regular;
+  }
+  .glossary-term-title:after {
+    clear: both;
+  }
+  .glossary-term-category {
+    padding: 0.25em 0.5em;
+    border-radius: 3px;
+    background-color: #fff;
+    font-size: @text-small;
+    line-height: @text-small;
+    float: right;
+    color: @brand-grey-200;
+    text-transform: uppercase;
+    border: 1px solid @brand-grey-200;
+  }
+}
+
+#ff-glossary-list {
+  width: 100%;
+  > li {
+    background-color: #fff;
+    .glossary-list-title {
+      font-size: @text-regular;
+      margin-bottom: 0;
+    }
+    .glossary-list-category {
+      font-size: @text-small;
+      color: @brand-grey-200;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.gh-list-item {
+
+
+  .gh-tag {
+    cursor: pointer;
+    font-size: 14px;
+  }
+}
+
+/* Blog list view */
+.gh-blog.gh-list-item {
+  max-height: 550px;
+  overflow-y: hidden;
+  margin-bottom: 3em;
+  padding-bottom: 3em;
+  border-bottom: 1px solid @brand-grey-100;
+  overflow-x: hidden;
+  .blogView-item-img {
+    height: 15em;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #fff;
+    margin: 1em 0 1em;
+  }
+  .blogView-tags {
+    color: @brand-grey-200;
+    i {
+      font-size: 14px;
+    }
+  }
+}
+
+/* Social */
+.index-social {
+  width: 100%;
+  //max-height: 635px;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+  height: 400px;
+  visibility: hidden;
+}
+
+.index-social-more {
+  padding: 2em;
+}
+
+.index-social-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border: 1px solid @brand-line-color;
+  border-radius: 3px;
+  width: 30%;
+  //min-height: 100%;
+  //height: 300px;
+  margin-bottom: 1rem;
+  .BoxShadowHelper(1);
+  @media @bs-xs {
+    width: 100%;
+    //margin: 0 1em 2em 1em;
+  }
+  @media @bs-sm {
+    width: 47.5%;
+  }
+  @media @bs-md {
+    width: 30%;
+  }
+  .index-social-top {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .index-social-name {
+    width: 100%;
+    a {
+      color: @brand-black;
+    }
+  }
+  .index-social-img {
+    margin-right: 0.75rem;
+    height: 72px;
+    width: 72px;
+    flex-basis: 98px;
+    border: 1px solid @brand-line-color;
+    border-radius: 6px;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .index-social-content {
+    //flex-basis: 80%;
+    //float: left;
+    width: 100%;
+    .social-network-icon {
+      color: @brand-grey-200;
+      float: right;
+      font-size: larger;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    .index-social-name {
+      font-size: @text-large;
+
+    }
+    .index-social-handle {
+      font-size: @text-regular;
+      color: @brand-grey-200;
+      font-style: italic;
+    }
+  }
+  .index-social-text {
+    margin-top: 0.75rem;
+    a {
+      display: none;
+    }
+  }
+  .index-social-action {
+    a {
+      color: @primary-50;
+      padding: 1em 0;
+      font-size: @text-regular;
+      text-transform: uppercase;
+      font-family: @font-futura;
+    }
+  }
+  .index-social-attachment {
+    display: inline-block;
+  }
+}
+
+.gh-loader {
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  margin: 0 auto;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/* GH List */
+.gh-component-list {
+  .gh-list-header {
+    font-size: @text-regular;
+    background-color: @brand-grey-50;
+    padding: 0.5rem 0;
+    border-radius: 2px;
+    > div {
+      display: inline-block;
+    }
+  }
+  .gh-list-3.gh-list-header {
+    > div {
+      width: 30%;
+      p {
+        padding: 0 0.1rem;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        font-size: @text-small;
+        font-weight: bold;
+        font-family: @font-futura;
+      }
+    }
+    > div:first-child {
+      margin-left: 1em;
+    }
+  }
+  .gh-list-body {
+    .gh-list-item {
+      padding: 0.5rem 0;
+      background-color: #fff;
+      > div {
+        display: inline-block;
+        i.material-icons {
+          font-size: 1em;
+        }
+      }
+      > div:first-child {
+        margin-left: 1em;
+      }
+    }
+    .gh-list-item:nth-child(even){
+      background-color: @brand-grey-50;
+    }
+    .gh-list-item.gh-list-3 {
+      width: 100%;
+      > div {
+        width: 30%;
+      }
+    }
+  }
+}
+
+/* People widget */
+.ghp-people-title {
+  font-size: @text-small;
+  text-transform: uppercase;
+  font-family: @font-futura;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: @primary-50;
+}
+
+.ghp-peopleblock-title,
+.ghp-peopleblock-description {
+  text-align: center;
+}
+
+.ghp-peopleblock-description {
+  margin-bottom: 1em;
+  font-family: @font-futura;
+  text-transform: uppercase;
+}
+
+.ghp-peopleblock-title {
+  color: @primary-50;
+  text-transform: uppercase;
+}
+
+.ghp-people-bioContent {
+  margin-top: 1rem;
+  font-size: @text-regular;
+}
+
+.ghp-peopleblock-rule {
+  display: none;
+}
+
+.ghp-people-name {
+  font-size: @text-large;
+}
+.ghp-people-item {
+  margin-bottom: 2rem;
+}
+
+#peopleModal {
+  .modal-header {
+    padding: 0;
+  }
+  .peopleModal-top {
+    .peopleModal-img {
+      border: 4px solid #fff;
+    }
+  }
+  .peopleModal-bottom {
+    padding: 1em;
+    h3 {
+      margin-bottom: 0;
+    }
+  }
+  .contributor-content {
+    margin-top: 2em;
+  }
+  .peopleModal-social {
+    margin-top: 0.5em;
+    font-size: @text-small;
+  }
+}
+
+.ghp-peoplecard-button {
+  font-family: @font-futura;
+  text-transform: uppercase;
+  font-size: @text-small;
+}
+
+.gh-people-social {
+  border-left: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.ghp-peoplecard-item {
+  margin-left: 0.5em !important;
+  padding-left: 0.5em !important;
+  border-left: 1px solid @brand-grey-200;
+  @media @bs-xs {
+    margin-left: 0;
+    padding: 0;
+    border-left: none;
+  }
+}
+
+.peopleModal-top {
+  background-color: @primary-25;
+}
+
+#donationModal {
+  label {
+    margin-bottom: 0;
+  }
+  .k-widget.k-maskedtextbox {
+    padding: 0;
+  }
+  .modal-content {
+    top: 0;
+  }
+  .modal-header {
+    .close {
+      @media @bs-xs {
+        display: none;
+      }
+    }
+  }
+  .modal-body {
+    padding: 1em 2em;
+    @media @bs-xs {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }
+  .modal-content {
+    margin-bottom: 3em;
+  }
+  .btn-default {
+    background-color: @brand-grey-50;
+    color: @brand-black;
+    border: 1px solid @brand-grey-100;
+    padding: 0.5em 0.65em;
+  }
+  .btn-default.active {
+    background-color: @primary-50 !important;
+  }
+  .row .col-sm-6:nth-child(2) {
+    @media @bs-xs {
+      padding-left: 0;
+    }
+  }
+  #donateModal-cancel {
+    display: none;
+    @media @bs-xs {
+      display: inline-block;
+      margin-top: 1em;
+    }
+  }
+  #donateModal-amount-btn {
+    div {
+      button {
+        background-color: @brand-grey-50;
+        color: @brand-black;
+        border: 1px solid @brand-grey-100;
+        padding: 0.25em 0.5em;
+      }
+      button.active {
+        color: #fff;
+      }
+    }
+  }
+  #donationModal-amount {
+    -webkit-font-smoothing: antialiased;
+    font-family: monospace;
+  }
+  #donateModal-amount-custom {
+    .input-group-addon {
+      padding-top: 15px;
+    }
+  }
+
+}
+
+/*#gh-user-auth {
+  .modal-dialog {
+    width: 100%;
+    @media @bs-sm {
+      width: 80%;
+    }
+    @media @bs-md {
+      width: 60%;
+    }
+  }
+  background-color: transparent !important;
+  .modal-content {
+    background-color: transparent;
+    position: relative;
+    top: 0;
+  }
+  .gh-auth-siteInfo {
+    display: none;
+  }
+  #gh-auth-tabs .k-tabstrip-items li {
+    border-radius: 0;
+    font-family: @font-museo;
+    color: @primary-50;
+  }
+  #gh-auth-tabs .k-tabstrip-items li:first-child.k-state-active {
+    color: @primary-50;
+    border-bottom: 1px solid #fff !important;
+  }
+  #gh-auth-tabs .k-tabstrip-items li.k-state-active .k-link {
+    color: @primary-50 !important;
+  }
+  #gh-auth-tabs .k-tabstrip-items li:nth-child(2).k-state-active {
+    border-bottom: 1px solid #fff !important;
+  }
+  #gh-auth-tabs .k-tabstrip-items li.k-item {
+    background-color: @brand-grey-100;
+  }
+  #gh-auth-tabs {
+    > ul {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      li:first-child {
+        flex-basis: 50%;
+      }
+      #gh-auth-tab-signIn {
+        width: auto;
+        flex: auto;
+      }
+    }
+    #gh-auth-close {
+      color: @brand-black;
+      padding: 1em;
+      opacity: 1 !important;
+      //position: absolute;
+      font-size: larger;
+      right: 0;
+      z-index: 1;
+      border-left: 1px solid @brand-line-color;
+      border-bottom: 1px solid @brand-line-color;
+      flex-basis: 24px;
+      background-color: #fff;
+    }
+    .k-state-active {
+      padding: 1em 0 0;
+    }
+  }
+  .modal-body {
+    @media @bs-xs {
+      padding: 0;
+    }
+  }
+  .modal-dialog {
+    @media @bs-xs {
+      margin: 0;
+    }
+  }
+  .gh-auth-section-input {
+    display: flex;
+    @media @bs-xs {
+      flex-direction: column-reverse;
+    }
+    .gh-auth-section {
+      flex-basis: auto;
+      width: 50%;
+      //float: left;
+      padding: 1em 1em 0;
+      box-sizing: border-box;
+      @media @bs-xs {
+        width: 100%;
+      }
+      > p:first-child {
+        @media @bs-sm {
+          display: none;
+        }
+      }
+      .btn-social-login {
+        margin-bottom: 0.5em;
+        box-sizing: border-box;
+        position: relative;
+        font-family: sans-serif;
+        font-size: @text-small;
+        height: 47px;
+        .fa {
+          position: absolute;
+          left: 1em;
+          top: 16px;
+        }
+      }
+      .btn-social-login:hover {
+        color: #fff;
+      }
+    }
+    !*.gh-auth-email-signup {
+      //display: none;
+      opacity: 0;
+      display: none;
+    }*!
+
+    #signUp-password-confirm {
+      font-size: @text-small;
+      padding: 0.25em 0.5em;
+      color: @brand-grey-200;
+      background-color: @brand-grey-50;
+      width: 100%;
+      box-sizing: border-box;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      p {
+        font-family: @font-futura;
+        letter-spacing: @letter-extend;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      a {
+        transition: none;
+        position: relative;
+        top: -60px;
+        text-transform: uppercase;
+        font-family: @font-futura;
+        padding: 4px 0;
+        background-color: #fff;
+        @media @bs-sm {
+          top: -60px;
+        }
+      }
+    }
+
+    #signUp-password-confirm.active {
+      background-color: #fff;
+      p {
+        display: none;
+      }
+      a {
+        position: relative;
+        top: -40px;
+        @media @bs-sm {
+          top: -40px;
+        }
+      }
+    }
+  }
+  .gh-auth-section#signUp-form,
+  .gh-auth-section#signIn-form {
+    border-right: 1px solid @brand-line-color;
+    margin-bottom: 1em;
+  }
+  .gh-auth-type-break {
+    padding: 0 0 1em;
+    @media @bs-sm {
+      display: none;
+    }
+  }
+  #gh-auth-tabs-1 > div.gh-auth-section,
+  #gh-auth-tabs-2 > div.gh-auth-section {
+    @media @bs-xs {
+      button {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0.25em 0;
+      }
+    }
+  }
+  .legal {
+    text-align: center;
+    padding: 0 1em;
+  }
+}
+
+.gh-auth-break-type {
+  @media @bs-xs {
+    padding: 1em 0;
+  }
+}
+
+.gh-signinblock-description {
+  font-size: @text-large;
+}*/
+
+#gh-auth-tabs {
+  background-color: #fff;
+  > ul {
+    > li {
+      list-style-type: none;
+      padding: 16px !important;
+      cursor: pointer;
+    }
+    > li.k-state-active {
+      .k-link {
+        color: @primary-100 !important;
+      }
+    }
+  }
+  .gh-auth-section {
+    .helper-label {
+      text-align: center;
+      width: 100%;
+      font-weight: bold;
+      @media @bs-xs {
+        display:none;
+      }
+    }
+  }
+  /*.well {
+    background-color: @primary-25;
+  }*/
+}
+
+#peopleblock-list{
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.ghp-donateblock {
+  .ghp-donateblock-message {
+    font-family: @font-caslon;
+    font-size: @text-large;
+  }
+  .ghp-donateblock-thankyou {
+    background-color: @brand-grey-50;
+    color: @primary-50 !important;
+    padding: 1em 2em;
+    display: inline-block;
+    font-family: @font-futura;
+    .BoxShadowHelper(1);
+  }
+  button.btn-success:hover {
+    background-color: @primary-250;
+    border-color: @primary-250;
+  }
+}
+
+#donateModal-amount-btn {
+  .btn {
+    margin-bottom: 0.5em;
+  }
+}
+
+#donationModal > div > div > div.modal-body > div > div > h3 {
+  margin-bottom: 0 !important;
+}
+
+#platformModal {
+  .platformModal-icon {
+    display: none;
+  }
+}
+
+.modal-header-sm {
+  font-family: @font-futura;
+  background-color: @brand-grey-50;
+  color: @brand-black;
+  //font-weight: 700;
+}

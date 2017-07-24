@@ -1,0 +1,514 @@
+<script id="profile" type="text/x-kendo-template" >
+    <div class="container">
+        <div class="row gh-profile">
+            <div class="col-sm-4 col-md-3 profile-left">
+                <div class="profile-top">
+                    <div class="profile-image">
+                        <img id="profile-photo" data-bind="attr: {src : photoUrl}">
+                    </div>
+                    <div class="profile-info well">
+                        <p id="profile-title">
+                            <span class="profile-title" data-bind="html: name"></span>
+                        </p>
+                        <p id="profile-role" >
+                            <span id="profile-roleTitle" data-bind="html: roleName">Staff</span>
+                        </p>
+                        <p id="profile-socialId" data-bind="html: socialId"></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <ul class="nav nav-pills nav-stacked profile-list">
+                    <li>
+                        <a class="listBtn" href="#profile-account" role="tab" data-toggle="tab">
+                            My Profile
+                        </a>
+                    </li>
+                    <li class="ghp-organization">
+                        <a class="listBtn" href="#profile-organization" role="tab" data-toggle="tab">
+                            My Organization
+                        </a>
+                    </li>
+                    <li class="ghp-diet">
+                        <a class="listBtn" href="#profile-diet" role="tab" data-toggle="tab">
+                            My Diet
+                        </a>
+                    </li>
+                    <li class="ghp-impact hidden">
+                        <a class="listBtn" href="#profile-impact" role="tab" data-toggle="tab">
+                            My Impact
+                        </a>
+                    </li>
+                    <li class="ghp-newsletters hidden">
+                        <a class="listBtn" href="#profile-newsletters" role="tab" data-toggle="tab">
+                            My Newsletters
+                        </a>
+                    </li>
+                    <li class="bpstaff hidden">
+                        <a class="listBtn" href="#profile-staffProfile" role="tab" data-toggle="tab">
+                            Staff Profile
+                        </a>
+                    </li>
+                    <li class="ghp-experiments hidden">
+                        <a class="listBtn" href="#profile-experiments" role="tab" data-toggle="tab">
+                            Experiments
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-8 col-md-9 profileContent">
+                <div class="tab-content">
+                    <div id="profile-diet" class="tab-pane" role="tabpanel">
+                        <h2>
+                            Diet Profile
+                        </h2>
+                        <br>
+                        <p>Please tell us about your diet so we can personalize your experience.  You can also try our <a onclick="profileView.doDietQuiz()" >Diet Quiz</a></p>
+
+                        <div class="form-group site-omnivore">
+                            <label for="profile-primaryDiet">Primary Diet</label>
+                            <br>
+                            <select id="profile-primaryDiet" class="form-control" data-bind="value: primaryDiet" >
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-diningList">Dining </label>
+                            <select id="profile-diningList" class="form-control" data-bind="value: diningList">
+                                <option>Dine Out</option>
+                                <option>Order In</option>
+                                <option>Cook At Home</option>
+                            </select>
+                        </div>
+                        <div class="form-group site-omnivore">
+                            <label for="profile-proteinList">Protein Consumed</label>
+                            <select id="profile-proteinList" class="form-control" data-bind="value: proteinList">
+                                <option>Beef</option>
+                                <option>Chicken</option>
+                                <option>Duck</option>
+                                <option>Eggs</option>
+                                <option>Fish</option>
+                                <option>Goat</option>
+                                <option>Lamb</option>
+                                <option>Plant</option>
+                                <option>Pork</option>
+                                <option>Shell Fish</option>
+                                <option>Turkey</option>
+                                <option>Veal</option>
+                                <option>Wild Game</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-dietRestrictions">Dietary Restrictions</label>
+                            <select id="profile-dietRestrictions" class="form-control" data-bind="value: dietRestrictions">
+                                <option>Gluten-Free</option>
+                                <option>Diabetic</option>
+                                <option>Halal</option>
+                                <option>Kosher</option>
+                                <option>Low Carb</option>
+                                <option>Low Sugar</option>
+                                <option>Low Protein</option>
+                                <option>Organic</option>
+                                <option>Lactose-Free</option>
+                                <option>Paleo</option>
+                                <option>Peanut</option>
+                                <option>ShellFish</option>
+                                <option>Soy</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-favoriteFoods">Favorite Foods </label>
+                            <select id="profile-favoriteFoods"  class="form-control"  data-bind="value: favoriteFoods" > </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profile-favoriteCuisines">Favorite Cuisines </label>
+                            <select id="profile-favoriteCuisines"  class="form-control"  data-bind="value: favoriteCuisines" > </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profile-avoidFoods">Foods You Avoid </label>
+                            <select id="profile-avoidFoods" type="text" class="form-control"  data-bind="value: avoidFoods" > </select>
+                        </div>
+                        <hr>
+                        <button class="btn-primary btn" type="button" onclick="profileView.doSave()">Save</button>
+                    </div>
+                    <div id="profile-account" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-12">
+                                <h2>
+                                    Profile
+                                </h2>
+                                <br>
+                                <div class="form-group hidden">
+                                    <label>Profile Photo</label>
+                                    <button class="btn-default" type="button" onclick="profileView.uploadProfilePhoto()">
+                                        <i class="material-icons">photo_camera</i>
+                                        Upload Profile Photo
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-name">Name</label>
+                                    <input id="profile-name" type="text" class="form-control"  data-bind="value: name"/>
+                                </div>
+                                <div class="form-group profile-section-email">
+                                    <label class="control-label" for="profile-email">Email</label>
+                                    <div class="input-group">
+                                        <span class="form-control-feedback" aria-hidden="true">
+                                            <i class="material-icons">check</i>
+                                        </span>
+                                        <input  id="profile-email" type="email" class="form-control" data-bind="value: email"/>
+                                    </div>
+                                    <div class="help-block"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="form-group profile-section-phone">
+                                    <label for="profile-phone">Mobile Phone</label> </br>
+                                    <input id="profile-phone" type="tel" class="form-control" data-bind="value: phone"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="profile-address">
+                                        Address  <button class="btn btn-link" type="button" onclick="profileView.locateMe()">
+                                        <i class="material-icons">my_location</i>
+                                        Auto Locate Me
+                                    </button>
+                                    </label>
+                                    <input id="profile-address" type="text" class="form-control"  data-bind="value: address"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-zipcode">Zipcode</label>
+                                    <input id="profile-zipcode" type="text" class="form-control" data-bind="value: zipcode"/>
+                                </div>
+
+                                <div class="hidden">
+                                    <hr>
+                                    <p>
+                                        <label>Link Your Social Accounts</label>
+                                    </p>
+                                    <button id="facebook-connected-btn" type="button" class="btn btn-facebook" onclick="profileView.linkToFacebook()">
+                                        <i class="fa fa-facebook-f"></i> Facebook <span id="profile-linkFacebook">Link</span>
+                                    </button>
+                                    <span id="facebook-connected" class="hidden">
+                                    <i class="fa fa-facebook-f"></i> Facebook Connected
+                                    </span>
+                                            <button type="button" class="btn btn-twitter" onclick="profileView.linkToTwitter()">
+                                                <i class="fa fa-twitter"></i> Twitter <span id="profile-linkTwitter">Link</span>
+                                            </button>
+                                            <span id="twitter-connected" class="hidden">
+                                        <i class="fa fa-twitter"></i> Twitter Connected
+                                    </span>
+                                            <span id="linkedin-connected" class="hidden">
+                                        <i class="fa fa-linkedin-square"></i> LinkedIn Connected
+                                    </span>
+
+                                </div>
+                                <hr>
+                                <button class="btn-primary btn" type="button" onclick="profileView.doSave()" id="profileView-save">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="profile-organization" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-12">
+                                <h2>
+                                    Organization
+                                </h2>
+                                <br>
+
+                                <div class="form-group">
+                                    <label for="profile-organizationInput">Organization Name</label><br>
+                                    <input id="profile-organizationInput" type="text" class="form-control"  data-bind="value: organizationName"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-organizationType">Organization Type </label><br>
+                                    <select style="width: 60%;" id="profile-organizationType" class="form-control" data-bind="value: organizationType">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-organizationRole">OrganizationRole </label><br>
+                                    <select style="width: 60%;" id="profile-organizationRole" class="form-control" data-bind="value: organizationRole">
+                                    </select>
+                                </div>
+
+                                <hr>
+                                <button class="btn-primary btn" type="button" onclick="profileView.doSave()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="profile-impact" class="tab-pane" role="tabpanel">
+                        <h2>
+                            My Impact
+                        </h2>
+                        <div class="profile-impact-tabs">
+                            <ul>
+                                <li class="profile-impact-donation">Donations</li>
+                                <li class="profile-impact-pledge">Pledges</li>
+                                <li class="profile-impact-petition hidden">Petitions</li>
+                                <li class="profile-impact-shopping hidden">Shopping / Sharing</li>
+                            </ul>
+                            <div id="profile-donations" >
+                                <div class="gh-component-list" id="profile-donations-list">
+                                    <div class="gh-list-header gh-list-3">
+                                        <div>
+                                            <p>
+                                                Date
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>Amount</p>
+                                        </div>
+                                        <div>
+                                            <p>Notes</p>
+                                        </div>
+                                    </div>
+                                    <div class="gh-list-body" id="profile-donation-table"></div>
+                                </div>
+                                <div id="profile-donations-empty" class="hidden">
+                                    <p>We don't have any donations recorded for you  </p>
+                                </div>
+                            </div>
+
+                            <div id="profile-pledges" >
+                                <div class="gh-component-list"  id="profile-pledges-list">
+                                    <div class="gh-list-header gh-list-3">
+                                        <div>
+                                            <p>
+                                                Date
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>Pledge</p>
+                                        </div>
+                                        <div>
+                                            <p>Site</p>
+                                        </div>
+                                    </div>
+                                    <div class="gh-list-body" id="profile-pledge-table"></div>
+                                </div>
+                                <div id="profile-pledges-empty" class="hidden">
+                                   <p>We don't have any pledges recorded for you. </p>
+                                </div>
+                            </div>
+
+                            <div id="profile-petitions" >
+                                <h4>Petitions</h4>
+                                <div class="gh-component-list" id="profile-petitions-list">
+                                    <div class="gh-list-header gh-list-3">
+                                        <div>
+                                            <p>
+                                                Date
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>Petition</p>
+                                        </div>
+                                        <div>
+                                            <p>Notes</p>
+                                        </div>
+                                    </div>
+                                    <div class="gh-list-body" id="profile-petition-table"></div>
+                                </div>
+                            </div>
+
+                            <div id="profile-smile" class="hidden">
+                                <h4>Shopping / Sharing</h4>
+
+                                <p>Thanks!   A portion of your purchases from these retailers have really helped</p>
+                                <div class="amazon-smile">
+                                    <a data-install_ref="smi_se_dshb_bk_is" class="a-link-normal pldn-js-draggable-bookmark pldn-draggable-bookmark" target="_blank" title="Amazon Smile" href="https://smile.amazon.com/ref=smi_se_dshb_bk_smi">
+                                        <img alt="Amazon Smile" src="http://cdn3.sportngin.com/attachments/call_to_action/6520/9291/Capture_large.PNG">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="profile-newsletters" class="tab-pane" role="tabpanel">
+                        <h2>
+                            My Newsletters
+                        </h2>
+                        <p> Stay informed and stay engaged!</p>
+                        <hr>
+
+                        <div class="gh-component-list">
+                            <div class="gh-list-header gh-list-3">
+                                <div>
+                                    <p>
+                                        Site
+                                    </p>
+                                </div>
+                                <div>
+                                    <p> Group </p>
+                                </div>
+                                <div>
+                                    <p> Newsletter</p>
+                                </div>
+                            </div>
+                            <div class="gh-list-body" id="profile-newsletter-table"></div>
+                        </div>
+
+
+                    </div>
+                    <div id="profile-staffProfile" class="tab-pane" role="tabpanel">
+
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-12">
+                                <h2>
+                                    Staff Profile
+                                </h2>
+                                <p>You can personalize your public profile on Farm Forward Sites.   You are our voice and the best source of information (and inspiration) for our users.</p>
+                                <hr>
+                                <form>
+                                    <div class="form-group hidden">
+                                        <label>Profile Photo</label>
+                                        <button class="btn-default btn-sm" type="button" onclick="profileView.uploadProfilePhoto()">
+                                            Upload New Profile Photo
+                                        </button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-staffAlias">Alias (Links Your Profile to FF Team Account)</label>
+                                        <input id="profile-staffAlias" type="email" class="form-control"   data-bind="value : alias" placeholder="<alias>@farmforward.com"  />
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label for="profile-staffEmail">Contact Email  (Where users should send personal email) </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope-square"></i></span>
+                                            <input id="profile-staffEmail" type="email" class="form-control" data-bind="value : contactEmail"  placeholder="me@example.com" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-staffFacebook">
+                                            Facebook Account  (Your Personal Facebook Account)
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-facebook-f"></i></span>
+                                            <input id="profile-staffFacebook" type="text" class="form-control" data-bind="value : facebookId" placeholder="Facebook Id" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-staffTwitter">
+                                            Twitter Account (Your Personal Twitter Account)
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+                                            <input id="profile-staffTwitter" type="text" class="form-control" data-bind="value : twitterId" placeholder="@username" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-personalUrl">Personal Site  (Your Personal Blog or Website)</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                                            <input id="profile-personalUrl" type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Personal Profile</label><br>
+                                        <button class="btn-default btn" type="button" onclick="profileView.doStaffProfile()">Edit Staff Profile</button>
+                                    </div>
+                                </form>
+                                <hr>
+
+                                <button class="btn-primary btn" type="button" onclick="profileView.doSave()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="profile-experiments" class="tab-pane" role="tabpanel">
+                        <form>
+                            <h2>
+                                Farm Forward Experiments
+                            </h2>
+                            <p>You can help us explore the new frontiers of Animal Welfare, healthier people and a sustainable plant by <em>joining</em> the experiments below. </p>
+                            <hr>
+                            <div class="form-group">
+                                <input type="checkbox" id="profile-tryRestaurants"  />
+                                <label for="profile-tryRestaurants">Find Higher Welfare Restaurants</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="profile-tryRecipes"  />
+                                <label for="profile-tryRecipes">Try Higher Welfare Recipes</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="profile-tryMobile"  />
+                                <label for="profile-tryMobile">Use our Mobile App (iOS or Android)</label>
+                            </div>
+                            <hr>
+                            <button class="btn btn-primary" type="button" onclick="profileView.doSave()">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<script id="profile-pledge-tmpl" type="text/x-kendo-template">
+    #
+    if (pledgeDate !== undefined && pledgeDate !== null) {
+        var pDate = moment(pledgeDate).format("M/D/YY");
+    }
+
+    #
+    <div class="gh-list-item gh-list-3">
+        <div>#: pDate #</div>
+        <div>#:pledgeTitle#</div>
+        <div>#:siteName#</div>
+    </div>
+</script>
+
+<script id="profile-petition-tmpl" type="text/x-kendo-template">
+    #
+    if(petitionDate !== undefined && petitionDate !== null){
+    var formattedDate = moment(petitionDate).format("M/D/YYYY");
+    }
+    #
+    <div class="gh-list-item gh-list-3">
+        <div>#= formattedDate #</div>
+        <div>#:pledgeTitle#</div>
+        <div>
+
+        </div>
+    </div>
+</script>
+
+<script id="profile-donation-tmpl" type="text/x-kendo-template">
+    #
+        if(date !== null && date !== undefined){
+            var formattedDate = moment(date).format("M/D/YYYY");
+        }
+
+        var siteName = 'Farm Forward';
+
+        if (organizationId === 'bff') {
+            siteName = 'Better Food Foundation';
+        }
+    #
+    <div class="gh-list-item gh-list-3">
+        <div>#= formattedDate #</div>
+        <div>$#: total#</div>
+        <div>
+            #:siteName# &nbsp;
+            #if(isRecurring){#
+            <i class="material-icons">repeat</i> Recurring
+            #}#
+        </div>
+    </div>
+
+</script>
+
+<script id="profile-newsletter-tmpl" type="text/x-kendo-template">
+
+    # var siteName = mailchimpModel.getListName(listId); #
+    <div class="gh-list-item gh-list-3">
+        <div>#= siteName #</div>
+        <div>#= groupName#</div>
+        <div>#= interestName# </div>
+    </div>
+
+</script>

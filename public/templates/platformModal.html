@@ -1,0 +1,19 @@
+<div class="modal fade" id="platformModal" tabindex="-1" role="dialog" aria-labelledby="platformModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>
+                    <img class="platformModal-icon" src="../images/logo.png" data-bind=" attr: { src: icon}" />
+                    <span data-bind="text: title"></span>
+                </h2>
+                <p data-bind="text: description"></p>
+            </div>
+            <div class="modal-body">
+                <div class="platformModal-content" data-bind="html: content"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="platformModal.close()" data-bind="text: buttonText">Dismiss</button>
+            </div>
+        </div>
+    </div>
+</div>

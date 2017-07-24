@@ -1,0 +1,172 @@
+<script id="pageEditor" type="text/x-kendo-template">
+    <nav class="navbar navbar-default navbar-secondary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="#/blog">
+                            <i class="material-icons">arrow_back</i> Back to blog
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="pageEditor-saveLi hidden">
+                        <a class="btn btn-primary" onclick="pageEditor.saveBlog()">
+                            <i class="material-icons">save</i> Save
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle bpstaff" data-toggle="dropdown">
+                            <i class="material-icons staff-icon">account_circle</i>
+                            Staff tools <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button class="button" type="button" onclick="pageEditor.addBlog()">
+                                    <i class="material-icons">add</i> Add Blog
+                                </button>
+                            </li>
+                            <li>
+                                <button class="button" type="button" onclick="pageEditor.findLinks()">
+                                    <i class="material-icons">search</i> Find Links in Blog
+                                </button>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <button type="button" class="button action-delete"  onclick="pageEditor.deleteBlog()">
+                                    <i class="material-icons">delete</i> Delete Blog
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Blog Editor</h2>
+        <p>Create and Edit Blogs...</p>
+        <nav class="navbar navbar-default" id="pageEditor-nav">
+            <div>
+                <ul class="nav navbar-nav navbar-left" role="menu">
+                    <li class="active">
+                        <a href="#pageEditor-info" role="tab" data-toggle="tab">
+                            Blog Info
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pageEditor-content" role="tab" data-toggle="tab">
+                            Content
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pageEditor-photos" role="tab" data-toggle="tab">
+                            Photos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pageEditor-links" role="tab" data-toggle="tab">
+                            Links
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pageEditor-references" role="tab" data-toggle="tab">
+                            References
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="pageEditor-tabs">
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="pageEditor-info">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div id="pageEditor-image" > <img data-bind="attr: {src: imageUrl}" /> </div>
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <div>
+                                    <br>
+                                    <button type="button" class="btn btn-default" onclick="pageEditor.replaceImage()">Upload Image</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <form>
+                                <div class="form-group">
+                                    <label for="pageEditor-title">Blog title</label>
+                                    <input type="text" class="form-control" id="pageEditor-title"  data-bind="value: title"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pageEditor-blogToken">Blog Id</label>
+                                    <input type="text" class="form-control" id="pageEditor-blogToken"  data-bind="value: slug"/>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="pageEditor-author">Author</label>
+                                    <input type="text" class="form-control" id="pageEditor-author"  style="width: 100%;" data-bind="value: author"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pageEditor-tags">Tags</label>
+                                    <select  class="form-control" id="pageEditor-tags"   multiple="multiple" data-placeholder="Select tags..." data-bind="value: tags" style="height: 96px;"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pageEditor-date">Publish Date</label><br/>
+                                    <input type="date" class="form-control" id="pageEditor-date"  data-bind="value: publishDate"/>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div> <!-- tabpanel -->
+
+                <div role="tabpanel" class="tab-pane" id="pageEditor-content">
+                    <div>
+                        <div>
+                        <textarea id="pageEditor-editor" class="form-control resize-y" data-bind="value : content">
+                        </textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="pageEditor-photos">
+
+                    <h4>Blog Photos</h4>
+                    <div class="hidden">
+                        <div id="pageEditor-galleryListView">
+
+                        </div>
+                        <div id="pageEditor-galleryPager" class="k-pager-wrap"></div>
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="pageEditor-links">
+
+                    <h4>Blog Links / Urls</h4>
+                    <div>
+                        <div id="pageEditor-linkGrid">
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="pageEditor-references">
+                    <h4>Blog References / Citations</h4>
+                    <div>
+                        <div id="pageEditor-referenceGrid">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>     <!-- tab content -->
+        </div> <!-- container fluid -->
+    </div>
+
+</script>

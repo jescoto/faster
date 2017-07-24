@@ -1,0 +1,116 @@
+@import (reference) "helpers/brand-colors";
+
+@base-font-size: 18px;
+@space-xl: "";
+@text-title-1: 34px;
+@text-title-2: 31px;
+@text-title-3: 28px;
+@text-headline: 16px;
+@text-large: 22px;
+@text-regular: 17px;
+@text-small: 14px;
+@text-tiny: 10px;
+
+@letter-extend: 0.15rem;
+
+@font-futura: futura-pt, sans-serif;
+@font-adobe: adobe-text-pro, serif;
+@font-caslon: adobe-caslon-pro, serif;
+@font-museo:  museo-slab, serif;
+
+@golden: 1.618em;
+
+/* Material Icons */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../../dist/css/fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(../../../dist/css/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+  url(../../../dist/css/fonts/MaterialIcons-Regular.woff) format('woff'),
+  url(../../../dist/css/fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5em;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: middle;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+h1,h2 {
+  font-family: @font-museo;
+  color: @brand-black;
+  font-weight: 100;
+}
+
+h1 {
+  font-size: @text-title-1;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: @text-title-2;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+
+h3 {
+    font-family: @font-caslon;
+    font-size: @text-title-3;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+  font-size: @text-title-3;
+  font-weight: 400;
+  //font-style: italic;
+  margin-bottom: 0.5em;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  line-height: 1.618;
+  //text-transform: none;
+  //letter-spacing: normal;
+}
+
+body {
+  line-height: 1.618;
+  font-family: @font-caslon;
+  color: @brand-black !important;
+  font-size: @text-regular;
+  font-weight: 400;
+}
+
+body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
+  font-size-adjust: 0.5;
+}
+
+.text-info {
+  font-size:@text-small;
+  color: @brand-grey-200;
+}

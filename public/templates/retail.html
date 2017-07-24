@@ -1,0 +1,87 @@
+<!-- Retailer Template -->
+<script id="retail" type="text/x-kendo-template">
+    <nav class="navbar navbar-default navbar-secondary">
+        <div class="container-fluid">
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="#/">
+                            <i class="material-icons">arrow_back</i> Back to Home
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle bpstaff" data-toggle="dropdown">
+                            <i class="material-icons staff-icon">account_circle</i>
+                            Staff tools <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button class="button" type="button" onclick="retailView.addRetailer()">
+                                    <i class="material-icons">add</i> Add Retailer
+                                </button>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="view">
+            <div>
+                <h2>Retailer</h2>
+                <p>Manage and edit Retailers...</p>
+                <div class="row">
+                    <div class="col-sm-12" id="retailSearch-div">
+                        <div class="bp-search-container">
+                            <span id="retailSearch-icon" class="search-icon">
+                            <i class="material-icons">search</i>
+                        </span>
+                            <div id="retailSearch-container"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row retailSearch-area">
+                    <div class="col-sm-3">
+                        <button class="btn btn-default btn-block visible-xs" type="button" data-toggle="collapse" data-target="#mobile-RetailFilters" id="toggle-mobileRetailFilters">
+                            <i class="fa fa-filter"></i>
+                            <span id="toggle-mobileRetailFilters-txt">Show results</span>
+                        </button>
+                        <div id="mobile-RetailFilters" class="collapse in">
+                            <div class="well">
+                                <div id="retailSearch-category"></div>
+                                <hr>
+                                <div id="retailSearch-type"></div>
+                                <hr>
+                                <div id="retailSearch-brand"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-9">
+                        <h3>
+                            Results
+                            <span id="retailSearch-stats"></span>
+                        </h3>
+                        <div id="retailSearch-results"></div>
+                        <div id="retailSearch-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+
+<script id="noRetailersTemplate" type="text/x-kendo-template">
+    <div class=productList-noResults>
+        <p>Sorry, no Retailers matched  <em>#:data.query#</em></p>
+
+    </div>
+</script>

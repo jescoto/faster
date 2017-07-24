@@ -1,0 +1,27 @@
+<script id="backlogList" type="text/html" >
+    <div class="container-fluid">
+        <h3>Backlog</h3>
+        <hr>
+        <form>
+            <div class="form-group">
+                <label for="backlogSite-selector">Sites</label>
+                <input id="backlogSite-selector" class="form-control"  style="width: 280px;" />
+            </div>
+        </form>
+        <div>
+            <div class="gh-search-container" id="backlogList-input-container">
+                    <span class="search-icon">
+                        <i class="material-icons">search</i>
+                    </span>
+                <input type="search" id="backlogList-search-input" class="gh-search" placeholder="Start typing to filter by Title..."  autocomplete="off" />
+            </div>
+            <hr>
+            <div class="col-sm-12">
+                <div id="backlogList-grid" ></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="backlogReport-window"></div>
+
+</script>

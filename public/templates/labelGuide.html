@@ -1,0 +1,271 @@
+<!-- Label Guide Template -->
+<script id="labelGuide" type="text/x-kendo-template">
+    <!-- Main Content -->
+    <div class="view" id="labelGuide-container">
+        <div class="container">
+            <div class="labelGuide-top">
+                <h2>Label Guide</h2>
+                <div class="label-overview">
+                    <p>Get the story behind the labels you see on products. Favorite the best labels and look for them when you shop.</p>
+                </div>
+                <div class="labelGuide-search row">
+                    <div class="labelGuide-searchInput col-md-8 col-sm-6">
+                        <div class="bp-search-container">
+                            <span class="search-icon labelGuide-search-icon">
+                                <i class="material-icons">search</i>
+                            </span>
+                            <input id="labelInput" class="bp-search-sm" type="search" />
+                        </div>
+                    </div>
+
+                    <div class="labelGuide-quick col-md-4 col-sm-6">
+                        <div class="labelGuide-quickTitle">Quick Filter: </div>
+                        <ul id="labelCategories">
+                            <li>
+                                All
+                            </li>
+                            <li>
+                                <span class="label bp-best"> Best </span>
+                            </li>
+                            <li>
+                                <span class="label bp-better"> Better </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+                <hr/>
+                <div class="hidden">
+                    <ul class="list-inline labelGuide-legend">
+                        <li>
+                            <label>Legend:</label>
+                        </li>
+                        <li>
+                            <i class="material-icons bp-verified">verified_user</i> Independently Verified
+                        </li>
+                        <li>
+                            <i class="material-icons favorite">favorite</i> Favorite
+                        </li>
+                        <li>
+                            <span class="label label-claim">Claim</span> Unregulated/No welfare certifications
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="label-listview"></div>
+            <hr />
+
+            <!-- LabelGuide Footnotes -->
+            <div class="labelGuide-footnotes">
+                <h5>Foot notes</h5>
+                <cite> <sup>1</sup> To read Consumer Reports&rsquo; complete evaluation of this claim, see &ldquo;Eco-label report cards for poultry,&rdquo; Consumer Reports. </cite>
+                <cite><sup>2</sup>  To read Consumer Reports&rsquo; complete evaluation of this claim, see &ldquo;Eco-label report cards for poultry,&rdquo; Consumer Reports. </cite>
+                <cite> <sup>3</sup> Farm Sanctuary, <i>Farm Animal Welfare: An Assessment of Product Labeling Claims, Industry Quality Assurance Guidelines and Third Party Certification Standards</i> (New York: Farm Sanctuary, 2005), 21, accessed July 23, 2015, available <a href="http://www.fda.gov/OHRMS/dockets/dockets/06p0394/06p-0394-cp00001-15-Tab-13-Farm-Animal-Welfare-01-vol1.pdf" target="_blank" >here</a>.  </cite>
+                <cite> <sup>4</sup>  To read Consumer Reports&rsquo; complete evaluation of this claim, see &ldquo;Eco-label report cards for poultry,&rdquo; Consumer Reports.</cite>
+                <cite> <sup>5</sup>  To read Consumer Reports&rsquo; complete evaluation of this claim, see &ldquo;Eco-label report cards for poultry,&rdquo; Consumer Reports.</cite>
+                <cite> <sup>6</sup>  Organic Foods Production Act of 1990, U.S. Code 7 (2005), &sect;&sect; 6501 et seq.</cite>
+                <cite> <sup>7</sup>  Organic Foods Production Act of 1990, U.S. Code 7 (2005), &sect;&sect; 6501 et seq.</cite>
+                <cite> <sup>8</sup>  Organic Foods Production Act of 1990, U.S. Code 7 (2005), &sect;&sect; 6501 et seq.</cite>
+                <cite> <sup>9</sup> To read Consumer Reports&rsquo; complete evaluation of this claim, see &ldquo;Eco-label report cards for poultry,&rdquo; Consumer Reports. Available <a href="http://www.greenerchoices.org/eco-labels/label.cfm?LabelID=272">here</a></cite>
+
+                <cite> <sup>10</sup> To read Consumer Reports&rsquo; complete evaluation of this claim, see &ldquo;Eco-label report cards for poultry,&rdquo; Consumer Reports.  </cite>
+                <cite> <sup>11</sup>   &ldquo;Livestock Conservancy Definition of Heritage Chicken,&rdquo; Livestock Conservancy, accessed July 23, 2015, available <a href="http://www.livestockconservancy.org/index.php/heritage/internal/heritage-chicken" target="_blank">here</a>.  </cite>
+
+                <cite> <sup>12</sup> &ldquo;Meat and Poultry Labeling Terms,&rdquo; U.S. Department of Agriculture, Food Safety Inspection Service, accessed July 23, 2015, available <a href="http://www.fsis.usda.gov/wps/wcm/connect/e2853601-3edb-45d3-90dc-1bef17b7f277/Meat_and_Poultry_Labeling_Terms.pdf?MOD=AJPERES" target="_blank" >here</a>.</cite>
+
+                <cite><sup>13</sup>   &ldquo;National Organic Program,&rdquo; U.S. Department of Agriculture, Agricultural Marketing Service, modified May 29, 2015, available <a href="http://www.ams.usda.gov/AMSv1.0/ams.fetchTemplateData.do?template=TemplateC&leftNav=NationalOrganicProgram&page=NOPConsumers&description=Consumers" target="_blank">here</a>.</cite>
+
+                <cite> <sup>14</sup> "What Is Hybrid Poultry?" Farm Forward, last modified June 28, 2012, available <a href="http://farmforward.com/2012/06/28/what-is-hybrid-poultry/" target="_blank">here</a>. </cite>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Label Model view -->
+    <div class="modal fade" id="labelView-modal" tabindex="-1" role="dialog" aria-labelledby="labelView-modal" data-model="labelGuideView.modalActiveObject">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div id="labelView-staff" class="row bpstaff hidden">
+                        <div class="col-sm-12">
+                            <h4>
+                                <i class="material-icons staff-icon">account_circle</i>
+                                Farm Forward Staff
+                                <button type="button" class="actionIcon pull-right" onclick="labelGuideView.editLabel()">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                            </h4>
+                        </div>
+                    </div>
+                    <button type="button" class="close" onclick="labelGuideView.closeLabelModal()" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="labelGuide-img-container">
+                        <img data-bind="attr: {src: imgUrl}" id="labelView-modal-img" class="center-block"/>
+                    </div>
+                    <h3 class="modal-title">
+                        <span id="myModalLabel" data-bind="text: title"></span>
+                    </h3>
+                    <div class="labelGuide-label-container">
+                        <span class="label bp-rating" data-bind="{text: category}" id="labelView-modal-category"></span>
+                    </div>
+                    <p class="labelView-modal-content" data-bind="html: content"></p>
+                    <ul class="list-unstyled labelCard-summary">
+                        <li data-bind="visible: isAnimalWelfare">
+                            <p class="labelCard-animalWelfare">
+                                <img src="images/icon-label-welfare.svg"/> Includes Animal Welfare
+                            </p>
+                        </li>
+                        <li data-bind="visible: ux_noAnimalWelfare">
+                            <p class="labelCard-animalWelfare">
+                                <img src="images/icon-label-noWelfare.svg"/> No Animal Welfare Standard
+                            </p>
+                        </li>
+                        <li data-bind="visible: isVerified">
+                            <p class="labelCard-verified">
+                                <img src="images/icon-label-verified.svg"/> Independently Verified
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button id="labelGuideView-favorite" type="button" onclick="labelGuideView.modalFavoriteToggle(event);" class="actionIcon hasTooltip" data-toggle="tooltip" data-placement="right" title="Favorite">
+                        <i class="material-icons">favorite_border</i>
+                    </button>
+                    <div class="bp-share">
+                        <ul class="rrssb-buttons clearfix">
+                            <li class="rrssb-share-text">Share</li>
+                            <li class="rrssb-email">
+                                <!-- Replace subject with your message using URL Encoding: http://meyerweb.com/eric/tools/dencoder/ -->
+                                <a class="share-email" href="mailto:?subject=Buying Poultry&body=Check out Buying Poultry!   http://www.buyfarmforward.com">
+                                    <span class="rrssb-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><path d="M20.11 26.147c-2.335 1.05-4.36 1.4-7.124 1.4C6.524 27.548.84 22.916.84 15.284.84 7.343 6.602.45 15.4.45c6.854 0 11.8 4.7 11.8 11.252 0 5.684-3.193 9.265-7.398 9.3-1.83 0-3.153-.934-3.347-2.997h-.077c-1.208 1.986-2.96 2.997-5.023 2.997-2.532 0-4.36-1.868-4.36-5.062 0-4.75 3.503-9.07 9.11-9.07 1.713 0 3.7.4 4.6.972l-1.17 7.203c-.387 2.298-.115 3.3 1 3.4 1.674 0 3.774-2.102 3.774-6.58 0-5.06-3.27-8.994-9.304-8.994C9.05 2.87 3.83 7.545 3.83 14.97c0 6.5 4.2 10.2 10 10.202 1.987 0 4.09-.43 5.647-1.245l.634 2.22zM16.647 10.1c-.31-.078-.7-.155-1.207-.155-2.572 0-4.596 2.53-4.596 5.53 0 1.5.7 2.4 1.9 2.4 1.44 0 2.96-1.83 3.31-4.088l.592-3.72z"/></svg></span>
+                                </a>
+                            </li>
+                            <li class="rrssb-facebook">
+                                <!--  Replace with your URL. For best results, make sure you page has the proper FB Open Graph tags in header: https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/ -->
+                                <a onclick="shareModel.fbClick(event)">
+                                    <span class="rrssb-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29"><path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"/></svg></span>
+                                </a>
+                            </li>
+                            <li class="rrssb-twitter">
+                                <!-- Replace href with your Meta and URL information  -->
+                                <a  href="https://twitter.com/intent/tweet?text=Check Out Buying Poultry! http://www.buyfarmforward.com" class="popup share-twitter">
+                                    <span class="rrssb-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62a15.093 15.093 0 0 1-8.86-2.32c2.702.18 5.375-.648 7.507-2.32a5.417 5.417 0 0 1-4.49-3.64c.802.13 1.62.077 2.4-.154a5.416 5.416 0 0 1-4.412-5.11 5.43 5.43 0 0 0 2.168.387A5.416 5.416 0 0 1 2.89 4.498a15.09 15.09 0 0 0 10.913 5.573 5.185 5.185 0 0 1 3.434-6.48 5.18 5.18 0 0 1 5.546 1.682 9.076 9.076 0 0 0 3.33-1.317 5.038 5.038 0 0 1-2.4 2.942 9.068 9.068 0 0 0 3.02-.85 5.05 5.05 0 0 1-2.48 2.71z"/></svg></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+
+<script type="text/x-kendo-template" id="labelListTemplate">
+    <div class="row">
+        <div class="img-responsive center-block col-md-2 col-xs-12">
+            <img src=#=data.imageUrl# >
+        </div>
+        <div  class="col-md-8 col-xs-12">
+            <div class="label-item-title">#:data.title#</div>
+            <div class="label-item-tooltip">#=data.tooltip#</div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="labelTemplate">
+    <div>
+        <div class="label-modal">
+            <img src="#=image#" />
+        </div>
+        <div> #=info# </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="labelBrowserTemplate">
+    #
+    var catStyle="label";
+    if (data.category === 'Best') {
+    catStyle = "label bp-best";
+    } else if(data.category === 'Better'){
+    catStyle = "label bp-better";
+    } else {
+    data.category = "";
+    }
+    var isFav = labelGuideView.isFavorite(data.id);
+    var icon = "favorite_border";
+    var isFavClass = isFav ? "favorite": "";
+    if (isFav) {
+    icon = "favorite";
+    }
+    #
+    <div class="labelCard" id="#:data.id#">
+        <div>
+            <div class="labelCard-top">
+                <div class="labelCard-category"><span class="#:catStyle#">#:data.category#</span></div>
+                <div class="labelCard-favorite">
+                    <a data-role="button" onclick="labelGuideView.favoriteToggle(event)" data-id="#:data.id#" title="Favorite" class="actionIcon no-fill" id="label-#:data.id#">
+                        <i class="material-icons #:isFavClass#">#:icon#</i>
+                    </a>
+                </div>
+                <div class="labelCard-img">
+                    <a class="btn" data-id="#:data.id#" onclick="labelGuideView.toggleLabelModal(event);">
+                        <img src=#=data.imageUrl# />
+                    </a>
+                </div>
+            </div>
+            <div class="labelCard-text">
+                <h3 class="labelCard-title">#:data.title#</h3>
+                <div class="labelCard-fade"></div>
+                <p class="labelCard-content">#=data.tooltip#</p>
+            </div>
+            <div class="labelCard-summary-info">
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            #if(data.isAnimalWelfare){#
+                            <img src="images/icon-label-welfare.svg" /> Includes Animal Welfare
+                            #} else {#
+                            <img src="images/icon-label-noWelfare.svg" /> No Animal Welfare Standard
+                            #}#
+
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            #if(data.isVerified){#
+                            <img src="images/icon-label-verified.svg"/> Independently Verified
+                            #}#
+
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="labelCard-action">
+                <a class="btn" data-id="#:data.id#" onclick="labelGuideView.toggleLabelModal(event);">Learn more</a>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+<script type="text/x-kendo-template" id="labelItemTemplate">
+
+    <div class="label-item">
+        <div style="float: right">
+            <img src="#=image#" >
+        </div>
+        <div class="label-item-title">#:title#</div>
+        <div class="label-item-tooltip">#=info#</div>
+    </div>
+
+</script>

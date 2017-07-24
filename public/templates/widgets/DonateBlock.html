@@ -1,0 +1,21 @@
+<script id="DonateBlock-tmpl" type="text/html">
+    <div class="ghp-donateblock" style="text-align: center;">
+        #if(userView.isStaff()){#
+            <div class="pull-right">
+                <button class="btn btn-default gh-staff-btn btn-sm"  data-widgetslug="#:widgetSlug#" onclick="donationEditor.open(this)" type="button">
+                    <span class="k-icon k-i-gear k-icon-32"></span>  Edit
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        #}#
+
+        <h2> #:title#</h2>
+        <p class="ghp-donateblock-message">#:message#</p>
+        #if(data.isSignedIn && data.showThankYou) {#
+            <p class="ghp-donateblock-thankyou">#=thankyouMessage#</p>
+        #}#
+        <div>
+            <button class="btn btn-success" data-campaignid="#:campaignId#" data-pledgeid="#:donationId#" id="btn-#:donationId#" >#:buttonText#</button>
+        </div>
+    </div>
+</script>

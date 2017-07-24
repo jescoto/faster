@@ -1,0 +1,214 @@
+<!-- BrandEditor Template -->
+<script id="brandEditor" type="text/x-kendo-template">
+    <nav class="navbar navbar-default navbar-secondary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="#/brand">
+                            <i class="material-icons">arrow_back</i> Back to Brands
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle bpstaff" data-toggle="dropdown">
+                            <i class="material-icons staff-icon">account_circle</i>
+                            Staff tools <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button class="button" type="button" onclick="brandEditor.addBrand()">
+                                    <i class="material-icons">add</i> Add Brand
+                                </button>
+                            </li>
+                            <li>
+                                <button class="button" type="button" onclick="brandEditor.updateProducts()">
+                                    <i class="material-icons">cached</i> Sync Products
+                                </button>
+                            </li>
+                            <li>
+                                <button class="button" type="button" onclick="brandEditor.updateRetailers()">
+                                    <i class="material-icons">cached</i> Sync Retailers
+                                </button>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <button type="button" class="listBtn action-delete"  onclick="brandEditor.deleteBrand()">
+                                    <i class="material-icons">delete</i> Delete Brand
+                                </button>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" >
+        <div class="col-sm-12 profileContent">
+            <h2>Brand Editor </h2>
+            <p>Manage brand info,  products and retailers...</p>
+            <nav class="navbar navbar-default ">
+                <div>
+                    <ul class="nav navbar-nav navbar-left" role="menu">
+                        <li class="active">
+                            <a href="#brandEditor-brand" role="tab" data-toggle="tab">
+                                Brand Info
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#brandEditor-products" role="tab" data-toggle="tab">
+                                Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#brandEditor-retailers" role="tab" data-toggle="tab">
+                                Retailers
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="brandEditor-brand" style="height: 80vh; min-height: 760px; padding-bottom: 32px;">
+                    <div>
+                        <h4>Info for <span data-bind="text: brandName"> </span> </h4>
+                        <p> Brand has <strong><span id="brandEditor-productCount" data-bind="text : productCount"></span></strong> Products and is sold by <strong><span id="brandEditor-retailerCount" data-bind="text : retailerCount"></span></strong>  Retailers </p>
+                        <div class="row">
+                            <div  class="col-sm-4 productModal-img">
+                                <img data-bind="attr: {src: brandImageUrl}" class="img-rounded center-block" />
+                                <div class="col-md-12 center-block" >
+                                    <div style="border-top: 16px;">
+                                        <button type="button" class="btn btn-default" onclick="brandEditor.replaceImage()">Upload New Brand Image</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="brandEditor-brandId">Brand Id</label>
+                                        <input id="brandEditor-brandId" type="text" class="form-control"  data-bind="value : brandId" readonly />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="brandEditor-name">Name
+                                        </label>
+                                        <input id="brandEditor-name" type="text" class="form-control"  data-bind="value : brandName" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="brandEditor-gradeScore">Grade Score <span class="label bp-rating" data-bind="text: category"></span>  Grade: <span data-bind="text: gradeName" ></span>   Range: <span data-bind="text: highScore"></span> : <span data-bind="text: lowScore"></span>
+                                        </label>
+                                        <input id="brandEditor-gradeScore" type="number" min="0" max="12" step='1' class="form-control"  data-bind="value : gradeScore" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="brandEditor-brandType">Brand Type</label>
+                                        <select id="brandEditor-brandType" class="form-control" data-bind="value: brandType">
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group hidden" id="brandEditor-regionStates-li">
+                                        <label for="brandEditor-regionStates">Brand available States</label>
+                                        <select id="brandEditor-regionStates" class="form-control" multiple="multiple" data-bind="value: regionStatesList">
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group hidden"   id="brandEditor-address-li">
+                                        <label for="brandEditor-address">Brand Address</label>
+                                        <input type="search" id="brandEditor-address" class="form-control" data-bind="value: address">
+                                        </input>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="brandEditor-productCategories">Product Categories</label>
+                                        <select id="brandEditor-productCategories"  multiple="multiple" data-bind="value: productCategories">
+                                            <option>Beef</option>
+                                            <option>Chicken</option>
+                                            <option>Dairy</option>
+                                            <option>Eggs</option>
+                                            <option>Pork</option>
+                                            <option>Plant-Based</option>
+                                            <option>Turkey</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="brandEditor-facebookId">Facebook Id
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">https://www.facebook.com/</div>
+                                            <input type="text" class="form-control" id="brandEditor-facebookId" data-bind="value : facebookId"  placeholder="Facebook Id">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="brandEditor-twitterId">Twitter Id
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">https://twitter.com/</div>
+                                            <input type="text" class="form-control" id="brandEditor-twitterId" data-bind="value : twitterId"  placeholder="Twitter Id">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="brandEditor-url">WebSite
+                                            <a role="button" class="actionIcon" data-bind="visible: brandUrl, attr: {href: brandUrl}" target="_blank" data-toggle="tooltip" data-placement="left" title="View product website">
+                                                <i class="material-icons">open_in_new</i>
+                                            </a>
+                                            <a role="button" class="actionIcon" target="_blank" data-bind="visible: searchUrl, attr: {href: searchUrl}" data-toggle="tooltip" data-placement="left" title="Search On Google">
+                                                <i class="material-icons">search</i>
+                                            </a>
+                                        </label>
+                                        <input id="brandEditor-url" type="url" class="form-control"  data-bind="value : brandUrl" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="brandEditor-storeLocator">Store Locator Url
+                                        </label>
+                                        <input id="brandEditor-storeLocator" type="text" class="form-control"  data-bind="value : brandStoreUrl" />
+                                    </div>
+                                    <hr/>
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="btn-block btn-primary" type="button" onclick="brandEditor.doSaveBrand()">Save</button>
+                </div>
+
+                <div role="tabpanel" class="tab-pane " id="brandEditor-products" style="height: 80vh; min-height: 760px; padding-bottom: 32px;">
+                    <h4>Products by <span data-bind="text: brandName"> </span></h4>
+                    <div>
+                        <div id="brandEditor-productGrid"></div>
+                    </div>
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane " id="brandEditor-retailers" style="height: 80vh; min-height: 760px; padding-bottom: 32px;">
+                    <h4> Retailers for <span data-bind="text: brandName"> </span></h4>
+                    <div>
+                        <p>Search for retailers below. <br> Click on retailers with a <i class="material-icons">add</i>  to add.   Retailers with a <i class="material-icons">done</i> are in the list and can be deleted in below.     </p>
+                    </div>
+                    <div class="aa-input-container" id="brand-input-container">
+                        <input type="search" id="brand-search-input" class="aa-input-search" placeholder="Start typing to see retailers" name="search" autocomplete="off" />
+                        <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+                            <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+                        </svg>
+                    </div>
+                    <hr>
+                    <h4>Current Retailers</h4>
+                    <div>
+                        <div id="brandEditor-retailerGrid"></div>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</script>

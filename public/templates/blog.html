@@ -1,0 +1,130 @@
+<script id="blogView" type="text/x-kendo-template">
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-secondary">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav nav-left">
+                    <li>
+                        <a href="#/blogs">
+                            <i class="material-icons">arrow_back</i> All Blogs
+                        </a>
+                    </li>
+                    <!--<li data-bind="visible: activeTag">
+
+                        <div class="row">
+                            <span data-bind="html: activeTag"></span>
+                            <a onclick="blogView.goToPrevPost()">
+                                <i class="material-icons">arrow_back</i>
+                                Prev
+                            </a>
+                            <span data-bind="text: index"></span> Of
+                            <span data-bind="text: total"></span>
+                            <a onclick="blogView.goToNextPost()">
+                                Next
+                                <i class="material-icons">arrow_forward</i>
+                            </a>
+                        </div>
+                    </li>-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle bpstaff" data-toggle="dropdown">
+                            <i class="material-icons staff-icon">account_circle</i>
+                            Staff tools <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!--<li>
+                                <button class="listBtn" type="button" onclick="blogView.newBlog()">
+                                    <i class="material-icons">add</i>
+                                    Add blog post
+                                </button>
+                            </li>-->
+                            <li>
+                                <button class="listBtn" type="button" onclick="blogView.editBlog()">
+                                    <i class="material-icons">edit</i>
+                                    Edit
+                                </button>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <button class="listBtn action-delete" type="button" onclick="blogView.deleteBlog()">
+                                    <i class="material-icons">delete</i>
+                                    Delete
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="view">
+        <div class="container no-fill">
+            <div class="row">
+                <div class="clearfix"></div>
+                <div class="col-md-8 col-md-offset-2" id="blogView-content">
+                    <h3 data-bind="text: title">My Blog</h3>
+                    <p class="blogView-subInfo" data-bind="text: publishDate"></p>
+                    <div class="blogView-subInfo-text">
+                        <div class="blogView-item-info pull-left">
+                            <a class="ff-card-contributor" onclick="blogView.showContribCard();">
+                                <img class="ff-contributor-img" data-bind="attr: {src: profileUrl}" />
+                                <div class="ff-contributor-info">
+                                    <p class="ff-contributor-name" data-bind="text: author"></p>
+                                    <p class="ff-contributor-title" data-bind="text: authorTitle"></p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="pull-right bp-share-container">
+                            <ul class="list-inline bp-share">
+                                <li>
+                                    <a href="mailto:?subject=Buying Poultry&body=Check out Buying Poultry!   http://www.buyfarmforward.com">
+                                        <i class="material-icons">mail</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="shareModel.fbClick(event)">
+                                        <i class="fa fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/intent/tweet?text=Check Out Buying Poultry! http://www.buyfarmforward.com" class="popup share-twitter" target="_blank">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="blogView-img">
+                        <img data-bind="attr: { src: imageUrl}" />
+                    </div>
+                    <div class="blogView-description" data-bind="html: content"></div>
+                    <p class="blogView-item-info">
+                        <i class="material-icons">local_offer</i> Tags
+                    </p>
+                    <div class="blogView-tags-full" data-bind="html:processedTags">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <a onclick="blogView.goToNextPost();">
+                        <div class="pull-right">
+                            <p class="blog-footer-title" data-bind="text: ux_nextBlogTitle"></p>
+                            <p class="blog-footer-subInfo">
+                                Next Post
+                                <i class="material-icons">arrow_forward</i>
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

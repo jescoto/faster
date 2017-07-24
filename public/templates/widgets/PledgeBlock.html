@@ -1,0 +1,61 @@
+<script id="pledgeBlock-tmpl" type="text/html">
+    #
+        if(isTaken && dateTaken !== null){
+            var formattedDate = moment(dateTaken).format("M/D");
+        }
+
+
+    #
+        <div class="ghp-pledgeblock" data-pledgeid="#:pledgeId#" >
+            #if(userView.isStaff() && false){#
+            <div class="pull-right">
+                <button class="btn btn-default gh-staff-btn btn-sm"  data-widgetslug="#:widgetSlug#" onclick="pledgeEditor.open(this)" type="button">
+                    <span class="k-icon k-i-gear k-icon-32"></span>  Edit
+                </button>
+            </div>
+            <div class="clearfix"></div>
+            #}#
+        <h2 class="ghp-pledge-title"> #:title#</h2>
+        <div class="ghp-pledge-description">#=description#</div>
+        <div class="ghp-pledge-action">#=pledgeAction#</div>
+        <div class="ghp-pledge-content">#=content#</div>
+
+
+        <div class="ghp-pledge-button">
+            # if (!isTaken) {#
+            <button class="btn btn-default ghp-pledge-btn" type="button" data-pledgeid="#:pledgeId#" id="btn-#:pledgeId#" >
+                #:buttonText#
+            </button>
+            #} else {#
+            <button class="btn btn-default ghp-pledge-btn" type="button" disabled>
+                <i class="material-icons">check</i>
+                #:thankyouTitle# #:formattedDate#
+            </button>
+            #}#
+        </div>
+        # if(isTaken) {#
+        <div class="ghp-pledge-thankyou well">
+            #=thankyou#
+        </div>
+        #}#
+        <div class="ghp-share">
+            <ul class="list-inline row">
+                <li class="col-sm-4">
+                    <a class="btn btn-default btn-block" href="mailto:?Subject=Milk Free Mornings&body=By leaving dairy out of our morning routines we can improve our health, the environment, and the lives of dairy cows and their young. It’s simple: less milk means fewer animals suffer. A huge variety of plant-based milks provide a perfect replacement to cow’s milk. Take the Milk Free Mornings pledge now and start your day a better way at http://www.milkfreemornings.org">
+                        <i class="material-icons">email</i> Email
+                    </a>
+                </li>
+                <li class="col-sm-4">
+                    <a class="btn btn-default btn-block popup share-facebook" onclick="mfmView.facebookShare()"  >
+                        <i class="fa fa-facebook"></i> Facebook
+                    </a>
+                </li>
+                <li class="col-sm-4 rrssb-twitter">
+                    <a class="btn btn-default btn-block popup share-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=It’s simple: Drinking less milk means fewer animals suffer. Pledge to make your mornings cow milk-free for 30 days.">
+                        <i class="fa fa-twitter"></i> Twitter
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</script>

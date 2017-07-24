@@ -1,0 +1,31 @@
+<script id="pledgeList" type="text/x-kendo-template" >
+    <div class="container-fluid">
+        <h3>Pledges</h3>
+        <div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <form>
+                        <div class="form-group">
+                            <label for="pledgeListSite-selector">Site:
+                            <input id="pledgeListSite-selector" class="form-control"  style="width: 280px;" />
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-6">
+                    <div class="bp-search-container" id="pledgeList-input-container">
+                            <span class="search-icon">
+                                <i class="material-icons">search</i>
+                            </span>
+                        <input type="search" id="pledgeList-search-input" class="bp-search" placeholder="Start typing to filter by Name..." name="search" autocomplete="off" />
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="col-sm-12">
+                <div id="pledgeList-grid" ></div>
+            </div>
+        </div>
+    </div>
+    <div id="pledgeReport-window"></div>
+</script>

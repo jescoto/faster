@@ -1,0 +1,46 @@
+<div id="peopleModal" class="fade modal" role="dialog" style="display: none;" tabindex="-1" data-model="peopleModal.activeObj">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="peopleModal.close()" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="peopleModal-top">
+                <div class="peopleModal-img">
+                    <img data-bind="attr: {src: imageUrl}" />
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="peopleModal-bottom">
+                    <h3 data-bind="text: name"></h3>
+                    <div class="ghp-people-title" data-bind="text: title"></div>
+                    <div class="gh-people-social">
+                        <ul class="list-inline">
+                            <li data-bind="visible: facebookId">
+                                <a onclick="peopleModal.openContact(event);" data-contact="facebook">
+                                    <i class="fa fa-facebook"></i>
+                                    <span data-bind="text: facebookId">Facebook</span>
+                                </a>
+                            </li>
+                            <li data-bind="visible: twitterId">
+                                <a onclick="peopleModal.openContact(event);" data-contact="twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <span data-bind="text: twitterId">Twitter</span>
+                                </a>
+                            </li>
+                            <li data-bind="visible: contactEmail">
+                                <a onclick="peopleModal.openContact(event);" data-contact="email">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span data-bind="text: contactEmail">Email</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contributor-content" data-bind="html: bioContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

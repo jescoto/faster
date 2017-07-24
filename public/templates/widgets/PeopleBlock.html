@@ -1,0 +1,58 @@
+<script id="peopleBlock-tmpl" type="text/x-kendo-template">
+    <div class="ghp-peopleblock">
+        <div class="ghp-widgetEditor hidden">
+            <div class="pull-right ">
+                <button class="btn btn-default gh-staff-btn btn-sm" data-widgetslug="#:widgetSlug#" onclick="peopleEditor.open(this)" type="button">
+                    <span class="k-icon k-i-gear k-icon-32"></span>  Edit
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div>
+            <h1 class="ghp-peopleblock-title"> #:title#</h1>
+            <div class="ghp-peopleblock-description">#=description#</div>
+            <hr class="ghp-peopleblock-rule"/>
+            <div class="ghp-peopleblock-list" id="peopleblock-list"></div>
+    </div>
+    </div>
+</script>
+
+
+<script id="people-item-tmpl" type="text/x-kendo-template">
+    <div class="ghp-people-item">
+        <div class="ghp-people-name">#= name # </div>
+        <div class="ghp-people-title">#=title #</div>
+        <div class="gh-people-social">
+            <ul class="list-inline  hidden">
+                # if(data.facebookId !== undefined && data.facebookId !== null) {#
+                <li>
+                    <a onclick="peopleModal.openContact(event);" data-contact="facebook" data-info="#:data.facebookId#">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                #}#
+                # if(data.twitterId !== undefined && data.twitterId !== null) {#
+                <li>
+                    <a onclick="peopleModal.openContact(event);" data-contact="twitter" data-info="#:data.twitterId#">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                #}#
+                # if(data.contactEmail !== undefined && data.contactEmail !== null) {#
+                <li>
+                    <a onclick="peopleModal.openContact(event);" data-contact="email" data-info="#:data.contactEmail#">
+                        <i class="fa fa-envelope-o"></i>
+                    </a>
+                </li>
+                #}#
+                <li class="gh-peoplecard-item">
+                    <a class="ghp-peoplecard-button" data-peopleslug="#:slug#" onclick="peopleModal.onClick(this)">
+                        More Info
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="ghp-people-bioContent">#= bioContent #</div>
+    </div>
+</script>

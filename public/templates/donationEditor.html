@@ -1,0 +1,56 @@
+
+<div class="modal fade" id="donationEditor" tabindex="-1" role="dialog" aria-labelledby="donationEditor">
+    <div class="modal-dialog staff-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Donation Widget Editor (Staff)
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="donationEditor-title">Title</label>
+                        <input type="text" class="form-control" id="donationEditor-title"  data-bind="value: title"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donationEditor-message">Message</label>
+                        <input type="text" class="form-control" id="donationEditor-message"  data-bind="value: message"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donationEditor-thankyou">Thank You Message</label>
+                        <input type="text" class="form-control" id="donationEditor-thankyou"  data-bind="value: thankyou"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donationEditor-authMessage">SignUp / SignIn Message</label>
+                        <input type="text" class="form-control" id="donationEditor-authMessage"  data-bind="value: authMessage"/>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <label for="donationEditor-signinRequired">
+                            <input type="checkbox" id="donationEditor-signinRequired"  data-bind="checked: signinRequired"/>
+                            User must Sign Up or Sign In to Donate
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <label for="donationEditor-showThankYou">
+                            <input type="checkbox" id="donationEditor-showThankYou"  data-bind="checked: showThankYou"/>
+                            Show Thank You Message
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donationEditor-donationId">Donation Identifier </label>
+                        <input type="text" class="form-control" id="donationEditor-donationId"  data-bind="value: donationId"/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" type="button" onclick="donationEditor.close()">Cancel</button>
+                <button class="btn-primary btn" type="button" onclick="donationEditor.doSave()" id="donationEditor-save">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

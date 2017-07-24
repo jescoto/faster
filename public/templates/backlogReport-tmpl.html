@@ -1,0 +1,50 @@
+<script id="backlogReport-tmpl" type="text/html" >
+    <div class="container-fluid">
+
+        <div id="backlogReport-tabstrip">
+            <ul>
+                <li class="k-state-active">
+                    Info
+                </li>
+                <li>
+                    Comments
+                </li>
+            </ul>
+            <div>
+                <h4>Info</h4>
+                <table class="table table-striped">
+                    <tr>
+                        <td>Site: </td>  <td> #=siteName# </td>
+                    </tr>
+                    <tr>
+                        <td> Title </td>  <td> #:title# </td>
+                    </tr>
+                    <tr>
+                        <td>Date</td> <td>#:targetDate#</td>
+                    </tr>
+                    <tr>
+                        <td>Feature Area </td> <td> #:featureArea# </td>
+                    </tr>
+                    <tr>
+                        <td>Priority </td> <td> #:priority#</td>
+                    </tr>
+                    <tr>
+                        <td>Design Status </td> <td> #:designStatus# </td>
+                    </tr>
+                    <tr>
+                        <td>Dev Status </td> <td> #:devStatus# </td>
+                    </tr>
+                    <tr>
+                        <td>UX  Status </td> <td> #:uxStatus# </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <h4>Comments</h4>
+                <div id="backlogReport-comments"></div>
+            </div>
+        </div>
+    </div>
+
+</script>

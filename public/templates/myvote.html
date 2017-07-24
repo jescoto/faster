@@ -1,0 +1,46 @@
+<!-- MyVote Template -->
+<script id="myvote" type="text/x-kendo-template">
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-sm-12 profileContent">
+            <h2>My Vote</h2>
+            <p> Your voice and your vote, choose and influence the people that represent you.  The information below is based on the address and zipcode in your profile.</p>
+            <hr>
+            <div id="myvote-tabstrip">
+                <ul>
+                    <li class="k-state-active">
+                        Representatives
+                    </li>
+                    <li>
+                        Legislation
+                    </li>
+                </ul>
+                <div>
+                    <div id="myvote-zipcodeDiv" >
+                        <span>Zipcode: <input id="myvote-zipcode" type="search" placeholder="Enter Zipcode...."></span>
+                        <hr>
+                    </div>
+
+                    <div id="myvote-representativeGrid"></div>
+                </div>
+                <div>
+                    <!--<div class="bp-search-container" id="myvote-input-container">
+                        <span class="search-icon">
+                             <i class="material-icons">search</i>
+                        </span>
+                        <input type="search" id="myvote-search-input" class="bp-search" placeholder="Start typing to filter by Title..." name="search" autocomplete="off" />
+                    </div>-->
+                    <div class="col-sm-10">
+                        <span>State:  <select id="myvote-state" style="width: 256px;" ></select> </span>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div id="myvote-legislationGrid" ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+

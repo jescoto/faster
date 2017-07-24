@@ -1,0 +1,56 @@
+<script id="menuEditor" type="text/x-kendo-template" >
+    <div class="container-fluid">
+        <h3>Main Menu Editor <span class="pull-right"><a class="btn btn-primary" onclick="menuEditor.saveMenu()">
+                            <i class="material-icons">save</i> Save
+                        </a></span></h3>
+        <hr>
+        <form>
+            <div class="form-group">
+                <label for="menuEditorSite-selector">Site</label>
+                <input id="menuEditorSite-selector" class="form-control"  style="width: 280px;" />
+            </div>
+        </form>
+        <div>
+            <h3>Sample Menu</h3>
+            <div style="width: 100%; height:48px;">
+                <ul id="menuEditor-sampleMenu"></ul>
+            </div>
+
+            <div class="row col-sm-12 k-content">
+                <h3>Pages </h3>
+                <div class="col-sm-6">
+                    <div class="bp-search-container" id="menuEditor-input-container">
+                    <span class="search-icon">
+                        <i class="material-icons">search</i>
+                    </span>
+                        <input type="search" id="menuEditor-search-input" class="bp-search" placeholder="Start typing to filter by Title..." autocomplete="off" />
+                    </div>
+                    <div id="menuEditor-grid"></div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div class="col-sm-6">
+                    <h3>Page Menu Editor</h3>
+                    <div id="menuEditor-dropTarget" style="width:100%; height: 36px; text-align: center; vertical-align: middle; background-color: #bcbcbc;">
+                        <p>Drop Page here to add to Main Menu</p>
+                    </div>
+                    <div id="menuEditor-treeView"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="menuEditor-pageWindow"></div>
+</script>
+
+<script id="menuEditor-menuTemplate" type="text/kendo-ui-template">
+    <div data-slug="#:item.slug#">
+    #: item.text #
+
+    # if (!item.items) { #
+    <a class='k-icon k-i-close-outline' onclick="menuEditor.deleteMenu(event)"></a>
+    # } #
+    # if (item.text !== "Main Menu") { #
+    <a class='k-icon k-i-edit' onclick="menuEditor.editMenu(event)"></a>
+    # } #
+    </div>
+</script>

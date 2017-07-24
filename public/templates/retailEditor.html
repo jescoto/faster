@@ -1,0 +1,173 @@
+<!-- Retail Editor Template -->
+<script id="retailEditor" type="text/x-kendo-template">
+    <nav class="navbar navbar-default navbar-secondary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="#/retail">
+                            <i class="material-icons">arrow_back</i> Back to Retailers
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle bpstaff" data-toggle="dropdown">
+                            <i class="material-icons staff-icon">account_circle</i>
+                            Staff tools <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button class="button" type="button" onclick="retailView.addRetailer()">
+                                    <i class="material-icons">add</i> Add Retailer
+                                </button>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <button type="button" class="listBtn action-delete"  onclick="retailEditor.deleteRetailer()">
+                                    <i class="material-icons">delete</i> Delete Retailer
+                                </button>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" >
+        <div class="col-sm-12 profileContent">
+            <h2>Retailer Editor </h2>
+            <p>Manage retailer info and product brands offers...</p>
+            <nav class="navbar navbar-default ">
+                <div>
+                    <ul class="nav navbar-nav navbar-left" role="menu">
+                        <li class="active">
+                            <a href="#retailEditor-retailer" role="tab" data-toggle="tab">
+                                Retailer Info
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#retailEditor-brands" role="tab" data-toggle="tab">
+                                Product Brands
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="retailEditor-retailer">
+                    <div>
+                        <h4>Info for <span data-bind="text: name"> </span> </h4>
+                        <div class="row">
+                            <div class="col-sm-3 productModal-img">
+                                <img data-bind="attr: {src: imageUrl}" class="img-rounded center-block" />
+                                <div style="border-top: 16px;">
+                                    <button type="button" class="btn btn-default btn-block" onclick="retailEditor.replaceImage()">Upload New Retailer Image</button>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-8">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="retailEditor-retailerId">Retailer Id</label>
+                                        <input id="retailEditor-retailerId" type="text" class="form-control"  data-bind="value : retailerId" readonly />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="retailEditor-name">Name
+                                        </label>
+                                        <input id="retailEditor-name" type="text" class="form-control"  data-bind="value : name" />
+                                    </div>
+
+                                    <div class="form-group hidden">
+                                        <label for="retailEditor-gradeScore">Grade Score <span class="label bp-rating" data-bind="text: category"></span>  Grade: <span data-bind="text: gradeName" ></span>
+                                        </label>
+                                        <input id="retailEditor-gradeScore" type="number" min="0" max="12" step='1' class="form-control"  data-bind="value : gradeScore" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="retailEditor-retailerType">Retailer Type</label>
+                                        <select id="retailEditor-retailerType" class="form-control" data-bind="value: retailerType">
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group hidden" id="retailEditor-regionStates-li" style="height: 140px;">
+                                        <label for="retailEditor-regionStates">Retailer States</label>
+                                        <select id="retailEditor-regionStates" class="form-control" multiple="multiple" data-bind="value: regionStatesList" style="height: 128px;">
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group hidden"   id="retailEditor-address-li">
+                                        <label for="retailEditor-address">Retailer Address</label>
+                                        <input type="search" id="retailEditor-address" class="form-control" data-bind="value: address">
+                                        </input>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="retailEditor-facebookId">Facebook Id
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">https://www.facebook.com/</div>
+                                            <input id="retailEditor-facebookId" type="text" class="form-control"  data-bind="value : facebookId" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="retailEditor-storeFinder">Store Finder Url</label>
+                                        <input id="retailEditor-storeFinder" type="url" class="form-control"  data-bind="value : storeFinderUrl" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="retailEditor-weeklyAds">Weekly Ad Url</label>
+                                        <input id="retailEditor-weeklyAds" type="url" class="form-control"  data-bind="value : weeklyAdUrl" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="retailEditor-url">WebSite
+                                            <a role="button" class="actionIcon" data-bind="visible: website, attr: {href: website}" target="_blank" data-toggle="tooltip" data-placement="left" title="View product website">
+                                                <i class="material-icons">open_in_new</i>
+                                            </a>
+                                            <a role="button" class="actionIcon" target="_blank" data-bind="visible: searchUrl, attr: {href: searchUrl}" data-toggle="tooltip" data-placement="left" title="Search On Google">
+                                                <i class="material-icons">search</i>
+                                            </a>
+
+                                        </label>
+                                        <input id="retailEditor-url" type="url" class="form-control"  data-bind="value : website" />
+                                    </div>
+
+
+                                </form>
+                                <button class="btn-block btn-primary" type="button" onclick="retailEditor.doSave()">Save</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane " id="retailEditor-brands">
+                    <h4>Brands offered by <span data-bind="text: name"> </span></h4>
+
+                    <div>
+                        <p>Search for Product Brands below. <br> Click on Brands with a <i class="material-icons">add</i>  to add.   Brands with a <i class="material-icons">done</i> are in the list and can be deleted in below.     </p>
+                    </div>
+                    <div class="aa-input-container" id="retail-input-container">
+                        <input type="search" id="retail-search-input" class="aa-input-search" placeholder="Start typing to see brands..." name="search" autocomplete="off" />
+                    </div>
+                    <hr>
+                    <h4>Current Brands</h4>
+                    <div>
+                        <div id="retailEditor-brandGrid"></div>
+                    </div>
+                    <button class="btn-block btn-primary" type="button" onclick="retailEditor.doSave()">Save</button>
+                </div>
+
+                <div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</script>

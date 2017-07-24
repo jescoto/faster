@@ -1,0 +1,45 @@
+
+<!-- Standard SignUp Wizard view -->
+<div class="modal fade" id="pledgeInfoModal" tabindex="-1" role="dialog" aria-labelledby="pledgeInfoModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="pledgeInfoModal.close()" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3 data-bind="html: title"></h3>
+                <p data-bind="html: message"></p>
+                        <div class="form-group pledgeInfo-section-email">
+                            <label class="control-label pledgeInfo-label" for="pledgeInfo-email">
+                                Email
+                            </label>
+                            <div class="input-group">
+                                        <span class="form-control-feedback" aria-hidden="true">
+                                            <i class="material-icons">check</i>
+                                        </span>
+                                <input id="pledgeInfo-email" type="email" class="form-control" data-bind="value: email"/>
+                            </div>
+                            <div class="help-block"></div>
+                            <p class="pledgeInfo-required">*Required</p>
+                        </div>
+                        <div class="form-group pledgeInfo-section-address">
+                            <label class="control-label pledgeInfo-label" for="pledgeInfo-address">
+                                Address
+                                <button class="btn btn-link" type="button" onclick="pledgeInfoModal.locateMe()">
+                                <i class="material-icons">my_location</i>
+                                Auto Locate Me
+                                </button>
+                            </label>
+                            <input id="pledgeInfo-address" type="text" class="form-control"  data-bind="value: address"/>
+                            <p class="pledgeInfo-required">*Required</p>
+                        </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" type="button" onclick="pledgeInfoModal.close()">Cancel</button>
+                <button class="btn-primary btn" type="button" onclick="pledgeInfoModal.doSave()" id="pledgeInfo-save">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

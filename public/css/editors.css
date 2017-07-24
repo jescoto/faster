@@ -1,0 +1,76 @@
+#peopleEditModal #peopleEditModal-grid {
+  margin-top: 2em;
+}
+.gh-drag-list {
+  padding: 0;
+}
+.gh-drag-list > .well {
+  padding: 0;
+}
+.gh-drag-list [draggable] {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+.gh-drag-list .gh-drag-item {
+  width: 100%;
+  cursor: move;
+  padding: 1em 1em 1em 0.5em;
+  border-bottom: 1px solid #dce0e0;
+  border-radius: 2px;
+  height: 60px;
+}
+.gh-drag-list .gh-drag-item .gh-drag-handle {
+  color: #9E9E9E;
+}
+.gh-drag-list .gh-drag-item .gh-drag-img {
+  height: 60px;
+  max-width: 60px;
+  vertical-align: middle;
+  margin-right: 1em;
+  display: none;
+}
+.gh-drag-list .gh-drag-item .gh-drag-img img {
+  height: 100%;
+  width: auto;
+}
+.gh-drag-list .gh-drag-item .gh-item-delete {
+  float: right;
+  display: inline-block;
+  margin-top: -6px;
+}
+.gh-drag-list .gh-drag-item .gh-item-delete i {
+  color: #E5767C;
+}
+.gh-drag-list .gh-drag-item:first-child {
+  margin-top: 0;
+}
+.gh-drag-list .drag-over {
+  border: 2px dashed #6CAB36;
+}
+.peopleEditModal-titleBar {
+  width: 100%;
+  padding: 0.25em 1em;
+  background-color: #E0E0E0;
+  color: #484848;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-family: futura-pt, sans-serif;
+}
+.peopleEditModal-titleBar span:first-child {
+  font-weight: bold;
+}
+.gh-photo-list .gh-drag-item {
+  height: 100px;
+}
+.gh-photo-list .gh-drag-item .gh-drag-img {
+  display: inline-block;
+}
+.gh-photo-list .gh-drag-item .gh-item-delete {
+  line-height: 60px;
+  margin-top: 0;
+}

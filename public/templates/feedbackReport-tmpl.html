@@ -1,0 +1,66 @@
+<script id="feedbackReport-tmpl" type="text/html" >
+    <div class="container-fluid">
+
+        <div id="feedbackReport-tabstrip">
+            <ul>
+                <li class="k-state-active">
+                    Info
+                </li>
+                <li>
+                   Screen Shot
+                </li>
+                <li>
+                    Comments
+                </li>
+            </ul>
+            <div>
+                <h4>Info</h4>
+                <table class="table table-striped">
+                    <tr>
+                        <td> #:siteName# </td>  <td> #=url# </td>
+                    </tr>
+                    <tr>
+                        <td>Submitted by </td> <td> #:senderName# (#:senderEmail#)</td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td>#:date#</td>
+                    </tr>
+                    <tr>
+                        <td>Category </td> <td> #:category# </td>
+                    </tr>
+                    <tr>
+                        <td>Priority </td> <td> #=priority#</td>
+                    </tr>
+                    <tr>
+                        <td>Status </td> <td> #:status# </td>
+                    </tr>
+                    <tr>
+                        <td>Assigned </td> <td> #=assignedTo#</td>
+                    </tr>
+                    <tr>
+                        <td>Backlog Slug </td> <td> #=backlogSlug#</td>
+                    </tr>
+                </table>
+                <hr>
+                <h4>Comment</h4>
+                <div style="font-size: 1.0em; font-weight: 600; border: 1px solid grey; margin: 10px; padding: 8px;">#=content#</div>
+            </div>
+
+            <div>
+                <h4>Screen Shot</h4>
+                <div style="font-size: 1.0em; font-weight: 600; border: 1px solid grey; margin: 10px; padding: 8px;">#=content#</div>
+                <div  id="feedbackReport-image">
+                    <img src="#=img#">
+                </div>
+
+            </div>
+
+            <div>
+                <h4>Comments</h4>
+                <div id="feedbackReport-comments"></div>
+            </div>
+        </div>
+    </div>
+
+</script>

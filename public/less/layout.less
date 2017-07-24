@@ -1,0 +1,175 @@
+@import (reference) "helpers/brand-colors";
+@import (reference) "typography";
+@import (reference) "helpers/media-queries";
+
+section {
+  padding: 4em 0;
+  @media @bs-xs {
+    padding: 2em 0;
+  }
+}
+
+.well {
+  background-color: #fff;
+  border: 1px solid @brand-line-color;
+}
+
+footer {
+  padding: 4em 0 0;
+  background-color: @brand-grey-300;
+  color: #fff;
+  .container {
+    .footer-address:last-child {
+      color: @brand-grey-200;
+    }
+  }
+  .btn-link {
+    color: #fff;
+  }
+  .footer-list-1 {
+    li {
+      margin-top: 1em;
+    }
+  }
+  #footer-inc {
+    margin-bottom: 0;
+    font-size: @text-regular;
+    margin-top: 4em;
+    color: @brand-grey-200;
+  }
+  .footer-address {
+    font-size: @text-small;
+    text-align: center;
+  }
+  #footer-share-block {
+    text-align: right;
+    @media @bs-xs {
+      text-align: left;
+      margin-top: 2em;
+    }
+  }
+  .footer-tagline {
+    color: @brand-grey-200;
+  }
+  a {
+    color: #fff;
+  }
+  a:hover {
+    color: @brand-grey-100;
+  }
+  a:active,
+  a:visited,
+  a:focus {
+    color: #fff;
+  }
+}
+
+sup {
+  font-size: @text-tiny;
+}
+
+label {
+  font-family: @font-futura;
+  font-size: @text-regular !important;
+  font-weight: 500;
+}
+
+input:not([type=checkbox]), input:not([type=checkbox]).form-control {
+  border-radius: 2px;
+  box-shadow: none;
+  color: @brand-black;
+  border: 1px solid @brand-line-color;
+  font-size: @text-regular;
+  height: 43px;
+  line-height: 43px;
+}
+
+.checkbox {
+  label {
+    padding-left: 30px !important;
+  }
+  input {
+    height: 24px;
+    width: 24px;
+    margin-left: -30px !important;
+  }
+}
+
+input[type=password] {
+  line-height: 43px;
+  height: 43px;
+}
+
+.view {
+  margin-top: 2em;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+blockquote {
+  font-style: italic;
+  font-family: @font-futura;
+  color: @primary-50;
+  font-size: @text-large;
+  padding: 0.5em;
+  text-align: center;
+  //text-decoration: underline;
+  border-left: none;
+}
+
+hr {
+  background: @brand-grey-200 !important;
+}
+
+.pledgeInfo-section-email {
+  .input-group {
+    display: block;
+  }
+}
+
+
+.gh-text-link {
+  color: @primary-50;
+  text-decoration: underline;
+}
+
+.button-circle-sm {
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+  text-align: center;
+  padding: 0.5rem;
+  display:inline-block;
+  font-size: @text-regular;
+  i {
+    //vertical-align: text-top;
+  }
+}
+
+#gh-banner.gh-noStaff {
+  top: 232px !important;
+}
+
+.modal {
+  overflow-y: scroll;
+}
+
+.k-autocomplete {
+  width: 100%;
+}
+
+.staff-modal {
+  .modal-header {
+    background-color: @primary-50;
+    color: #fff;
+    padding: 0.5em 1em;
+    font-size: @text-small;
+    text-transform: uppercase;
+    font-family: @font-futura;
+  }
+}

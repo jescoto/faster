@@ -1,0 +1,53 @@
+<div class="modal fade" id="feedback-modal" tabindex="-1" role="dialog" aria-labelledby="feedback-modal" data-model="feedbackView.activeObj">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="feedbackView.close()" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-sm-12">
+                    <div style="font-size: 1.6em; font-weight: 600;"> Feedback on : <span data-bind="text: siteName"></span></div>
+                    <div style="font-size: 1.1em; font-weight: 400;"> Page : <span data-bind="text: url"> </span> </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6">
+
+                        <div class="form-group">
+                            <label for="feedback-category">Category </label>
+                            <select id="feedback-category" class="form-control" data-bind="value: category">
+                                <option>Bug</option>
+                                <option>Feature</option>
+                                <option>UX</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="feedback-priority">Priority</label>
+                            <select id="feedback-priority" class="form-control" data-bind="value: priority">
+                                <option>Low</option>
+                                <option>Normal</option>
+                                <option>High</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <img data-bind="attr: {src: img}">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <h4>Description</h4>
+                    <textarea  id="feedback-textarea" class="form-control resize-y" rows="12" data-bind="value : content"></textarea>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="feedback-button btn btn-default" onclick="feedbackView.notifyDev()">Notify Tech</button>
+                <button type="button" class="feedback-button btn btn-default" onclick="feedbackView.emailCopy()">Email Me A Copy</button>
+                <button type="button" class="feedback-button btn btn-success" onclick="feedbackView.sendReport()">Send Report</button>
+            </div>
+        </div>
+    </div>
+</div>

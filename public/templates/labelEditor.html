@@ -1,0 +1,88 @@
+<script id="labelEditor" type="text/x-kendo-template">
+    <nav class="navbar navbar-default navbar-secondary">
+        <div class="container">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle bpstaff" data-toggle="dropdown">
+                            <i class="material-icons staff-icon">account_circle</i>
+                            Staff tools <span class="caret"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-primary"  onclick="labelEditView.save()">Save</button>
+
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-primary"  onclick="labelEditView.close()">Close</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img data-bind="attr: {src: imgUrl}" /></a>
+                <button type="button" class="btn btn-primary"  onclick="labelEditView.editImage()">Replace Label Image</button>
+            </div>
+            <div class="col-sm-8">
+                <form>
+                    <div class="form-group">
+                        <label for="labelEdit-title">Label title</label>
+                        <input type="text" class="form-control" id="labelEdit-title"  data-bind="value: title"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelEdit-slug">Label Slug</label>
+                        <input type="text" class="form-control" id="labelEdit-slug"  data-bind="value: slug"/>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3 no-pad">
+                                <label for="labelEdit-category">Category</label>
+                                <!--<input id="labelEdit-category" class="form-control" data-bind="value: category"/>-->
+                                <select id="labelEdit-category" class="form-control col-sm-4" data-bind="value: category">
+                                    <option value="Best">Best</option>
+                                    <option value="Better">Better</option>
+                                    <option value="Avoid">Avoid</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="labelEdit-categoryRank">Category Rank (Sort order for Labels)</label>
+                        <select id="labelEdit-categoryRank" class="form-control" data-bind="value: categoryRank">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="labelEdit-isVerified">Is Certification</label>
+                        <input type="checkbox" data-bind="checked: isVerified" id="labelEdit-isVerified"  />
+                    </div>
+                    <div class="form-group">
+                        <label for="labelEdit-isAnimalWelfare">Is Animal Welfare</label>
+                        <input type="checkbox" data-bind="checked: isAnimalWelfare" id="labelEdit-isAnimalWelfare"  />
+                    </div>
+                    <div class="form-group">
+                        <label for="labelEdit-tooltip">Tooltip</label>
+                        <textarea data-bind="value: tooltip" id="labelEdit-tooltip" class="form-control" style="height: 72px; resize: none;"></textarea>
+                    </div>
+                    <hr/>
+                    <div class="form-group">
+                        <label for="labelEdit-editor">Label Content</label>
+                        <textarea id="labelEdit-editor" class="form-control resize-y"style="height: 25vh;" data-bind="value: content">
+                        </textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</script>

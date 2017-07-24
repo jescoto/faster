@@ -1,0 +1,133 @@
+
+<script id="blogsView" type="text/x-kendo-template">
+    <nav class="navbar navbar-default navbar-secondary">
+        <div class="container">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle bpstaff" data-toggle="dropdown">
+                            <i class="material-icons staff-icon">account_circle</i>
+                            Staff tools <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button class="listBtn" onclick="blogView.newBlog()">
+                                    <i class="material-icons">add</i> Add blog post
+                                </button>
+                            </li>
+                            <li>
+                                <button class="listBtn" onclick="blogsView.editCategories()">
+                                    Edit Categories
+                                </button>
+                            </li>
+                            <li>
+                                <button class="listBtn" onclick="blogsView.editTags()">
+                                    Edit Tags
+                                </button>
+                            </li>
+                            <li>
+                                <button class="listBtn" onclick="blogsView.editGlossary()">
+                                    Edit Glossary
+                                </button>
+                            </li>
+                            <li>
+                                <button class="listBtn" onclick="blogsView.editSocialFeed()">
+                                    Edit Social Feed
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="view">
+        <div class="container">
+            <!--<div class=" view-top">
+                <h2>
+                    Blog
+                </h2>
+            </div>-->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="bp-search-container-sm">
+                        <span id="blogSearch-icon" class="search-icon">
+                            <i class="material-icons">search</i>
+                        </span>
+                        <input type="search" class="bp-search" id="blog-searchbox" placeholder="Search blogs... "/>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 blogView-subInfo">
+                            <span class="pull-left blogView-item-info blogView-tag-active hidden">
+                               <span>Tags: </span>
+                               <span id="blogsView-activeTag"></span>
+                            </span>
+                            <span class="pull-right">
+                                <span id="blogsView-queryStats" class="bp-subInfo"></span>
+                            </span>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                    <div class="blogList">
+                        <ul id="blogsView-list"></ul>
+                        <div class="empty-blog hidden">
+                            <p>
+                                No blog posts found
+                                <span></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5 col-sm-offset-1">
+                    <div class="blogView-panel well">
+                        <div class="pull-left">
+                            Social Feed
+                        </div>
+                        <div class="pull-right social-networks">
+                            <a class="btn-sm btn-twitter" href="https://twitter.com/buyingpoultry" target="_blank">
+                                <i class="fa fa-twitter"></i> Twitter
+                            </a>
+                            <a class="btn-sm btn-facebook" href="https://www.facebook.com/buyingpoultry" target="_blank">
+                                <i class="fa fa-facebook"></i> Facebook
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="social-feed-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="blogView-list-tmpl" type="text/x-kendo-template">
+    #
+
+    var formattedDate = moment(data.publishDate).format('MMM Do, YYYY');
+    var tagString = blogsView.processTags(data.tags);
+    var title = decodeURIComponent(data.title);
+    #
+    <div class="blogView-item">
+        <h3>#:title#</h3>
+        <p class="blogView-item-info">By #:data.author# - #:formattedDate#</p>
+        <div class="blogView-tags text-clamp">
+            <i class="material-icons">local_offer</i>
+            #=tagString#
+        </div>
+        #
+        if(data.tags.length > 3){#
+        <div class="blogView-tag-more">
+            <button class="bp-tag bp-tag-more" onclick="blogsView.showTags(event)">more</button>
+        </div>
+        #}
+        #
+
+        <div class="clearfix"></div>
+        <div class="blogView-item-img" style="background-image: url('#:data.imageUrl#')"></div>
+        <div class="blogView-item-contentDiv">
+            <div class="blogView-item-fade"></div>
+            <div class="blogView-item-text">#=data.content#</div>
+        </div>
+        <button class="bp-btn-primary btn" type="button" onclick="blogsView.openBlog(event);" data-slug="#:data.slug#">Read more</button>
+    </div>
+</script>

@@ -1,0 +1,145 @@
+<script id="blogEditor" type="text/x-kendo-template">
+    <nav class="navbar navbar-default navbar-secondary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a onclick="blogEditor.close()">
+                            <i class="material-icons">arrow_back</i>Blog List
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <h2>Blog Editor</h2>
+        <nav class="navbar navbar-default" id="blogEditor-nav">
+            <div>
+                <ul class="nav navbar-nav navbar-left" role="menu">
+                    <li class="active">
+                        <a href="#blogEditor-info" role="tab" data-toggle="tab">
+                            Blog Info
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#blogEditor-content" role="tab" data-toggle="tab">
+                            Content
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#blogEditor-photos" role="tab" data-toggle="tab">
+                            Photos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#blogEditor-links" role="tab" data-toggle="tab">
+                            Links
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#blogEditor-references" role="tab" data-toggle="tab">
+                            References
+                        </a>
+                    </li>
+                    <li id="blogEdit-saveLi hidden">
+                        <a class="btn btn-primary" onclick="blogEditor.saveBlog()">
+                            <i class="material-icons">save</i> Save
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="blogEdit-tabs">
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="blogEditor-info">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div id="blogEdit-image" > <img data-bind="attr: {src: imageUrl}" /> </div>
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <div>
+                                    <br>
+                                    <button type="button" class="btn btn-default" onclick="blogEditor.replaceImage()">Upload Image</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <form>
+                                <div class="form-group">
+                                    <label for="blogEdit-title">Blog title</label>
+                                    <input type="text" class="form-control" id="blogEdit-title"  data-bind="value: title"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="blogEdit-blogToken">Blog Id</label>
+                                    <input type="text" class="form-control" id="blogEdit-blogToken"  data-bind="value: slug"/>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="blogEdit-author">Author</label>
+                                    <input type="text" class="form-control" id="blogEdit-author"  style="width: 100%;" data-bind="value: authorSlug"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="blogEdit-tags">Tags</label>
+                                    <select  class="form-control" id="blogEdit-tags"   multiple="multiple" data-placeholder="Select tags..." data-bind="value: tags" style="height: 96px;"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="blogEdit-date">Publish Date</label><br/>
+                                    <input type="date" class="form-control" id="blogEdit-date"  data-bind="value: publishDate"/>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div> <!-- tabpanel -->
+
+                <div role="tabpanel" class="tab-pane" id="blogEditor-content">
+                    <div>
+                        <div style="height: 760px;">
+                        <textarea id="blogEdit-editor" class="form-control resize-y" data-bind="value : content">
+                        </textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="blogEditor-photos">
+
+                    <h4>Blog Photos</h4>
+                    <div class="hidden">
+                        <div id="blogEdit-galleryListView">
+
+                        </div>
+                        <div id="blogEdit-galleryPager" class="k-pager-wrap"></div>
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="blogEditor-links">
+
+                    <h4>Blog Links / Urls</h4>
+                    <div>
+                        <div id="blogEdit-linkGrid">
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="blogEditor-references">
+                    <h4>Blog References / Citations</h4>
+                    <div>
+                        <div id="blogEdit-referenceGrid">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>     <!-- tab content -->
+        </div> <!-- container fluid -->
+    </div>
+
+</script>
+

@@ -1,0 +1,92 @@
+@import (reference) "helpers/brand-colors";
+@import (reference) "helpers/shadowHelper";
+@import (reference) "typography";
+
+#peopleEditModal {
+  #peopleEditModal-grid {
+    margin-top: 2em;
+  }
+
+}
+
+.gh-drag-list {
+  padding: 0;
+  > .well {
+    padding: 0;
+  }
+  [draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+  }
+  .gh-drag-item {
+    width: 100%;
+    cursor: move;
+    padding: 1em 1em 1em 0.5em;
+    border-bottom: 1px solid @brand-line-color;
+    border-radius: 2px;
+    //margin: 1em 0 0.5em;
+    height: 60px;
+    //.BoxShadowHelper(1);
+    //line-height: 100px;
+    .gh-drag-handle {
+      color: @brand-grey-200;
+    }
+    .gh-drag-img {
+      height: 60px;
+      max-width: 60px;
+      //display: inline-block;
+      vertical-align: middle;
+      margin-right: 1em;
+      display: none;
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+    .gh-item-delete {
+        float: right;
+        display: inline-block;
+        margin-top: -6px;
+      i {
+        color: @brand-red-100;
+      }
+    }
+  }
+  .gh-drag-item:first-child {
+    margin-top: 0;
+  }
+  .drag-over {
+    border: 2px dashed @primary-50;
+  }
+}
+
+.peopleEditModal-titleBar {
+  width: 100%;
+  padding: 0.25em 1em;
+  background-color: @brand-grey-100;
+  color: @brand-black;
+  font-size: @text-tiny;
+  text-transform: uppercase;
+  font-family: @font-futura;
+  span:first-child {
+    font-weight: bold;
+  }
+}
+
+.gh-photo-list {
+    .gh-drag-item {
+      height: 100px;
+      .gh-drag-img {
+        display: inline-block;
+      }
+      .gh-item-delete {
+        line-height: 60px;
+        margin-top: 0;
+      }
+    }
+}

@@ -1,0 +1,151 @@
+section {
+  padding: 4em 0;
+}
+@media (max-width:767px) {
+  section {
+    padding: 2em 0;
+  }
+}
+.well {
+  background-color: #fff;
+  border: 1px solid #dce0e0;
+}
+footer {
+  padding: 4em 0 0;
+  background-color: #58595B;
+  color: #fff;
+}
+footer .container .footer-address:last-child {
+  color: #9E9E9E;
+}
+footer .btn-link {
+  color: #fff;
+}
+footer .footer-list-1 li {
+  margin-top: 1em;
+}
+footer #footer-inc {
+  margin-bottom: 0;
+  font-size: 17px;
+  margin-top: 4em;
+  color: #9E9E9E;
+}
+footer .footer-address {
+  font-size: 14px;
+  text-align: center;
+}
+footer #footer-share-block {
+  text-align: right;
+}
+@media (max-width:767px) {
+  footer #footer-share-block {
+    text-align: left;
+    margin-top: 2em;
+  }
+}
+footer .footer-tagline {
+  color: #9E9E9E;
+}
+footer a {
+  color: #fff;
+}
+footer a:hover {
+  color: #E0E0E0;
+}
+footer a:active,
+footer a:visited,
+footer a:focus {
+  color: #fff;
+}
+sup {
+  font-size: 10px;
+}
+label {
+  font-family: futura-pt, sans-serif;
+  font-size: 17px !important;
+  font-weight: 500;
+}
+input:not([type=checkbox]),
+input:not([type=checkbox]).form-control {
+  border-radius: 2px;
+  box-shadow: none;
+  color: #484848;
+  border: 1px solid #dce0e0;
+  font-size: 17px;
+  height: 43px;
+  line-height: 43px;
+}
+.checkbox label {
+  padding-left: 30px !important;
+}
+.checkbox input {
+  height: 24px;
+  width: 24px;
+  margin-left: -30px !important;
+}
+input[type=password] {
+  line-height: 43px;
+  height: 43px;
+}
+.view {
+  margin-top: 2em;
+}
+.flex-center {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+blockquote {
+  font-style: italic;
+  font-family: futura-pt, sans-serif;
+  color: #6CAB36;
+  font-size: 22px;
+  padding: 0.5em;
+  text-align: center;
+  border-left: none;
+}
+hr {
+  background: #9E9E9E !important;
+}
+.pledgeInfo-section-email .input-group {
+  display: block;
+}
+.gh-text-link {
+  color: #6CAB36;
+  text-decoration: underline;
+}
+.button-circle-sm {
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+  text-align: center;
+  padding: 0.5rem;
+  display: inline-block;
+  font-size: 17px;
+}
+#gh-banner.gh-noStaff {
+  top: 232px !important;
+}
+.modal {
+  overflow-y: scroll;
+}
+.k-autocomplete {
+  width: 100%;
+}
+.staff-modal .modal-header {
+  background-color: #6CAB36;
+  color: #fff;
+  padding: 0.5em 1em;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: futura-pt, sans-serif;
+}

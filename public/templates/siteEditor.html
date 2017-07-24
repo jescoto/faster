@@ -1,0 +1,122 @@
+<script id="siteEditor" type="text/x-kendo-template" >
+    <div class="container" style="padding-top: 36px;">
+        <h2>Site Editor:  <span data-bind="text: name"></span></h2>
+
+
+        <div id="siteeditor-tabstrip" style="padding-bottom: 24px; height: 920px;">
+            <ul>
+                <li class="k-state-active">
+                    Info
+                </li>
+                <li>
+                    Sponsor
+                </li>
+                <li>
+                    Email Messages
+                </li>
+
+            </ul>
+            <div >
+                <h4>Site Info</h4>
+                <hr>
+                <form>
+                    <div class="form-group">
+                        <label for="site-staffEmail">Info Email </label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope-square"></i></span>
+                            <input id="site-staffEmail" type="email" class="form-control" data-bind="value : infoEmail"  placeholder="info@example.com" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="site-staffFacebook">
+                            Facebook Account  (Site Facebook Account)
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-facebook-f"></i></span>
+                            <input id="site-staffFacebook" type="text" class="form-control" data-bind="value : facebookId" placeholder="!sitename" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="site-staffTwitter">
+                            Twitter Account (Site Twitter Account)
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+                            <input id="site-staffTwitter" type="text" class="form-control" data-bind="value : twitterId" placeholder="@sitename" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="site-staffFacebookList">
+                            Related Facebook Accounts (to be displayed in social feeds)
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-facebook-f"></i></span>
+                            <input id="site-staffFacebookList" type="text" class="form-control" data-bind="value : relatedFacebookList" placeholder="Enter Faceboook Ids..." />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="site-staffTwitterList">
+                            Related Twitter Accounts (to be displayed in social feeds)
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+                            <input id="site-staffTwitterList" type="text" class="form-control" data-bind="value : relatedTwitterList" placeholder="Enter Twitter Ids..." />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="site-profileFields">Profile Fields</label>
+                        <select id="site-profileFields" class="form-control" data-bind="value: profileFields">
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="site-crossPostList">Blog Cross Post List</label>
+                        <select id="site-crossPostList" class="form-control" data-bind="value: crossPostList">
+                        </select>
+                    </div>
+                </form>
+                <hr>
+                <button class="btn-primary" type="button" onclick="siteEditor.doSave()">Save</button>
+            </div> <!-- Site info -->
+
+            <div > <!-- Sponsor info -->
+                <h4>Sponsor Messages</h4>
+                <hr>
+                <form>
+                    <div class="form-group">
+                        <label for="site-sponsorTitle">Sponsor Title </label>
+                        <input id="site-sponsorTitle" type="text" class="form-control" data-bind="value : sponsorTitle" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="site-sponsorDescription">Sponsor Message </label>
+                        <textarea id="site-sponsorDescription"  class="form-control resize-y" data-bind="value : sponsorMessage" > </textarea>
+                    </div>
+                </form>
+                <hr>
+                <button class="btn-primary" type="button" onclick="siteEditor.doSave()">Save</button>
+            </div><!-- Sponsor info -->
+
+            <div > <!-- Messages info -->
+                <h4>Email Messages</h4>
+                <hr>
+                <form>
+                    <div class="form-group">
+                        <label for="siteEditor-messageSelector">Select Message</label>
+                        <input id="siteEditor-messageSelector" class="form-control"  style="width: 320px;" />
+                    </div>
+                </form>
+
+                <textarea id="site-messageEditor"  class="form-control resize-y" > </textarea>
+
+            </div><!-- Messages info -->
+
+
+        <div> <!-- tabstrip -->
+    </div>
+
+</script>

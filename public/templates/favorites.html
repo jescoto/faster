@@ -1,0 +1,177 @@
+<script id="favorites" type="text/x-kendo-template" >
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 profile-left">
+                <div class="profile-top">
+                    <div class="profile-image">
+                        <img id="favorites-profile-photo" data-bind="attr: {src : photoUrl}">
+                    </div>
+                    <div class="profile-info">
+                        <p id="favorites-profile-title">
+                            <span class="profile-title" data-bind="html: name"></span>
+                        </p>
+                        <p id="profile-role" >
+                            <span id="favorites-profile-roleTitle" data-bind="html: roleName">Staff</span>
+                        </p>
+                        <p id="favorites-profile-socialId" data-bind="html: socialId"></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-sm-9 profileContent">
+                <ul class="list-inline" id="profile-favorites-menu">
+                    <li>
+                        <button onclick="favoritesView.showFavorites(event)" data-section="labels" class="active">
+                            <i class="fa fa-circle"></i>
+                            Labels
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="favoritesView.showFavorites(event)" data-section="brands">
+                            <i class="fa fa-circle"></i>
+                            Brands
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="favoritesView.showFavorites(event)" data-section="products">
+                            <i class="fa fa-circle"></i>
+                            Products
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="favoritesView.showFavorites(event)" data-section="stores">
+                            <i class="fa fa-circle"></i>
+                            Stores
+                        </button>
+                    </li>
+                </ul>
+                <hr>
+                <div class="profile-favorites-lists">
+                    <div class="profile-favorites profile-favorites-products hidden">
+                        <div id="profileProducts-listview"></div>
+                        <div id="profileProducts-listview-empty" class="hidden">
+                            No favorite products yet.
+                        </div>
+                    </div>
+                    <div class="profile-favorites profile-favorites-brands hidden">
+                        <div id="profileBrands-listview"></div>
+                        <div id="profileBrands-listview-empty" class="hidden">
+                            No favorite Brands yet.
+                        </div>
+                    </div>
+                    <div class="profile-favorites profile-favorites-stores hidden">
+                        <div id="profileStores-listview"></div>
+                        <div id="profileStores-listview-empty" class="hidden">
+                            No favorite stores yet.
+                        </div>
+                    </div>
+                    <div class="profile-favorites profile-favorites-labels">
+                        <div id="profileLabels-listview"></div>
+                        <div id="profileLabels-listview-empty" class="hidden">
+                            No favorite labels yet.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+<script id="labelList-template" type="text/x-kendo-template">
+    <div class="row" data-objectId="#:objectId#">
+        #
+        var obj = JSON.parse(data.objectData);
+        var category = obj.category.toLowerCase();
+        #
+        <div class="col-sm-2 labelList-img">
+            <img src=#=objectImage# class="img-responsive center-block">
+        </div>
+        <div class="col-sm-9 labelList-info">
+            <h4 class="labelList-title">
+                <span class="pull-left">#:objectName#</span>
+                # if(category !== ""){#
+                <span class="pull-right label bp-#:category#">
+                    #= obj.category #
+                </span>
+                #}#
+            </h4>
+            <div class="clearfix"></div>
+            <div class="labelList-tooltip">#=obj.tooltip#</div>
+            <div>
+                <button class="actionIcon action-delete" data-category="Label" data-objectId="#:objectId#" onclick="favoritesView.deleteFavorite(event)" type="button">
+                    Remove
+                </button>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+<script id="productList-template" type="text/x-kendo-template">
+    <div class="row" data-objectId="#:objectId#">
+        #
+        var obj = JSON.parse(data.objectData);
+        var imgSrc = "/images/icon-defaultProduct.png";
+        if(data.objectImage !== null){
+        imgSrc = data.objectImage;
+        }
+        #
+        <div class="col-sm-2">
+            <img src=#=imgSrc# class="img-responsive center-block">
+        </div>
+        <div class="col-sm-9">
+            <h3 class="labelList-title pull-left">
+                <span>#:objectName#</span>
+            </h3>
+            <button class="actionIcon pull-right action-delete" data-category="Product" data-objectId="#:objectId#" onclick="favoritesView.deleteFavorite(event)">
+                <i class="material-icons">delete</i>
+            </button>
+            <div class="clearfix"></div>
+            <p class="list-certified subInfo">
+                <img src="images/icon-certified.svg" class="icon"/>
+                <span>#:obj.certificationString#</span>
+            </p>
+            <p class="list-certified subInfo">
+                <img src="images/icon-claim.svg" />
+                <span>#:obj.claimString#</span>
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="brandList-template" type="text/x-kendo-template">
+    <div class="row" data-objectId="#:objectId#">
+        # var obj = JSON.parse(data.objectData);
+        #
+        <div class="col-sm-2">
+            <img src=#=objectImage# class="img-responsive center-block">
+        </div>
+        <div class="col-sm-9">
+            <h3 class="labelList-title">
+                <span>#:objectName#</span>
+                <button class="actionIcon pull-right action-delete" data-category="Brand" data-objectId="#:objectId#" onclick="favoritesView.deleteFavorite(event)">
+                    <i class="material-icons">delete</i>
+                </button>
+            </h3>
+        </div>
+    </div>
+</script>
+
+<script id="storeList-template" type="text/x-kendo-template">
+    <div class="row" data-objectId="#:objectId#">
+        # var obj = JSON.parse(data.objectData);
+        #
+        <div class="col-sm-12">
+            <h3 class="labelList-title">
+                <span>#:objectName#</span>
+                <button class="actionIcon pull-right action-delete" data-category="Store" data-objectId="#:objectId#" onclick="favoritesView.deleteFavorite(event)">
+                    <i class="material-icons">delete</i>
+                </button>
+                <p class="storeList-info">#:obj.address#</p>
+            </h3>
+            <
+        </div>
+    </div>
+</script>

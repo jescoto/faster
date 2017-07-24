@@ -1,0 +1,72 @@
+<script id="donorList" type="text/x-kendo-template" >
+    <div class="container-fluid">
+        <div>
+            <h3> Ledger <span data-bind="text: siteName"> </span></h3>
+        </div>
+        <div id="donationlist-tabstrip">
+            <ul>
+                <li style="font-size: 1.2em;" class="k-state-active">
+                    Choose Ledger
+                </li>
+                <li style="font-size: 1.2em;" >
+                    Donations
+                </li>
+                <li  style="font-size: 1.2em;">
+                    Transactions
+                </li>
+            </ul>
+            <div>
+                <div>
+                    <h3>Choose Ledger</h3>
+                    <div class="form-group">
+                        <label for="donationListSite-selector">Ledgers</label>
+                        <input id="donationListSite-selector" class="form-control"  style="width: 280px;" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="bp-search-container" id="donationList-input-container">
+                                <span class="search-icon">
+                                    <i class="material-icons">search</i>
+                                </span>
+                        <input type="search" style="width: 320px;" id="donationList-search-input" class="bp-search" placeholder="Start typing to filter by Email..." name="search" autocomplete="off" />
+                    </div>
+                    <hr>
+                    <div class="col-sm-12">
+                        <div id="donationList-grid" ></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="bp-search-container" id="transactionList-input-container">
+                                <span class="search-icon">
+                                    <i class="material-icons">search</i>
+                                </span>
+                        <input style="width: 320px;" type="search" id="transactionList-search-input" class="bp-search" placeholder="Start typing to filter by Email..." name="search" autocomplete="off" />
+                    </div>
+                    <hr>
+                    <div class="col-sm-12">
+                        <div id="transactionList-grid" ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="donationcommand-template" type="text/x-kendo-template">
+    #
+    if(typeof(isRecurring) === 'undefined') {
+        isRecurring = false;
+    }
+    console.log('isRecurring = ' + isRecurring);
+    if (isRecurring === true) {#
+    <a class="k-button k-grid-recurring" data-objectId="#:Id#" data-email="#:email#" data-customer="#:customer#" data-transaction="#:transactionId#" >Cancel Recurring</a>
+    # } else { #
+    <a class="k-button k-grid-donation" data-objectId="#:Id#"  data-email="#:email#"  data-customer="#:customer#" data-transaction="#:transactionId#">Refund Donation</a>
+    # }#
+    <a class="k-button k-grid-audit"  data-objectId="#:Id#" data-email="#:email#" data-customer="#:customer#" data-transaction="#:transactionId#" >Audit User</a>
+
+</script>

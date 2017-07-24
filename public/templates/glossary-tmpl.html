@@ -1,0 +1,31 @@
+<div id="glossary-tmpl-container" data-model="glossaryView.activeObj">
+    <div class="ff-glossaryItem" id="glossary-tmpl">
+        <div class="arrow"></div>
+        <div id="ff-glossary-current">
+            <div>
+                <p class="glossary-term-title">
+                        <span class="pull-left hidden">
+                            <a class="btn-sm btn" onclick="glossaryView.showGlossaryList()">
+                                <i class="material-icons">
+                                    arrow_back
+                                </i>
+                            </a>
+                        </span>
+                    <span data-bind="text: title"></span>
+                    <span data-bind="text: category" class="glossary-term-category"></span>
+                </p>
+            </div>
+            <hr/>
+            <div data-bind="html: content"></div>
+        </div>
+        <div id="ff-glossary-list-container" class="hidden">
+            <div class="bp-search-container-sm">
+                <span class="search-icon">
+                    <i class="material-icons">search</i>
+                </span>
+                <input class="bp-search" type="text" placeholder="Search glossary terms..." id="glossary-search-input" data-bind="value: query" />
+            </div>
+            <ul data-role="listview" id="ff-glossary-list"></ul>
+        </div>
+    </div>
+</div>

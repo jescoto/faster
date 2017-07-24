@@ -1,0 +1,669 @@
+/****** BFF custom.css ******/
+@import (reference) "helpers/media-queries";
+@import (reference) "helpers/shadowHelper";
+@import (inline) "../css/bootstrap-theme.css";
+@import (inline) "../css/typography.css";
+@import (inline) "../css/layout.css";
+@import (inline) "../css/overrides.css";
+@import (inline) "../css/widgets.css";
+@import (inline) "../css/editors.css";
+@import (reference) "helpers/brand-colors";
+@import (reference) "typography";
+
+#mainMenu { 
+  //font-family: @font-heading;
+  .navbar-right {
+    margin-top: 0;
+    li button, li a {
+      line-height: 50px;
+      height: 50px;
+      padding: 0;
+      padding-left: 1em;
+      margin-top: 0;
+    }
+  }
+}
+
+/* Nav bar styles */
+#layout-nav {
+  background-color: #fff;
+  top: 30px;
+  border: none;
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar-nav {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    //padding: 1em;
+    justify-content: center;
+    background-color: #fff;
+    border: none;
+    font-family: @font-futura;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    border-bottom: 1px solid @brand-grey-100;
+    > li {
+      margin-right: 24px;
+      > a, > button {
+        font-size: @text-small;
+        text-transform: uppercase;
+        padding: 0 1em;
+        line-height: 69px;
+        height: 69px;
+        @media @bs-xs {
+          padding: 0 3em;
+        }
+
+      }
+      a:active, button:active {
+        background-color: @brand-grey-50;
+      }
+    }
+    @media @bs-xs {
+      flex-direction: column;
+    }
+  }
+  .navbar-header {
+    margin: 0;
+  }
+  @media @bs-xs {
+    .navbar-toggle {
+      left: 12px;
+      float: none;
+      margin-right: 0;
+      @media @bs-xs {
+        top: 0;
+        position: absolute;
+        margin: 0;
+        padding: 0 1em;
+        line-height: 150px;
+      }
+    }
+    .navbar-nav {
+      align-items: flex-start;
+      > li {
+        width: 100%;
+        margin: 0;
+        > button {
+          text-align: left;
+          padding: 0 3em;
+        }
+      }
+      margin: 0 !important;
+    }
+  }
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
+
+.navbar-default {
+  border: none;
+  border-bottom: 1px solid @brand-line-color;
+}
+
+
+.navbar-default .btn-link {
+  color: @brand-grey-300;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.navbar-default .btn-link:hover {
+  text-decoration: none;
+}
+
+#mainMenu {
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+}
+
+#mainMenu.in {
+  border-bottom: 1px solid @brand-grey-100;
+}
+
+.navbar-header {
+  width: 100%;
+  display: flex;
+  background-color: @primary-100;
+  .navbar-logo {
+    height: auto;
+    width: 125px;
+    margin: 28px auto;
+    display: inline-block;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.menu-user {
+  color: @brand-grey-300;
+  text-align: left;
+  //padding-left: 2em;
+  a {
+    color: @brand-grey-300 !important;
+    padding: 0;
+  }
+  ul li {
+    button {
+      @media @bs-xs {
+        padding: 2em 3em;
+      }
+    }
+  }
+}
+
+#mainMenu > ul > li.menu-user.dropdown > ul {
+  width: 100%;
+}
+
+#content {
+  padding-top: 232px;
+  min-height: 80vh;
+  @media @bs-xs {
+    padding-top: 162px;
+  }
+}
+
+.donateBtn button:hover {
+  background-color: transparent;
+}
+
+/*#index-owl {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+}*/
+
+.index-heroImg-container {
+  background: url(https://res.cloudinary.com/hyjvcxzjt/image/upload/v1498059813/bff/bk-1-optimized.jpg) no-repeat center center;
+  //background-color: @brand-grey-100;
+    width: 100%;
+    height: 100%;
+    min-height: 375px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @media @bs-xs {
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-position: center center;
+    }
+
+  /*display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;*/
+
+  .text-block {
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+  }
+  h2 {
+    color: @font-adobe;
+
+    //text-shadow: 2px 1px 2px rgba(0,0,0,0.24);
+  }
+  /*.text-block {
+    width: 50%;
+    height: 306px;
+    background-color: #fff;
+
+  }*/
+  @media @bs-xs {
+    min-height: 250px;
+  }
+}
+
+#index-mission {
+  h2 {
+    text-align: center;
+    color: @primary-50;
+    text-transform: uppercase;
+  }
+}
+
+#index-donate {
+  background-color: @primary-100;
+  color: #fff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  padding: 6em 0;
+  h2, p {
+    color: #fff;
+    text-align: center;
+    //width: 40%;
+    //margin-left: 30%;
+    //margin-right: 30%;
+  } 
+}
+
+#index-social-container {
+  background-color: @brand-grey-50;
+  h2 {
+    text-align: center;
+    color: @primary-50;
+    text-transform: uppercase;
+    //margin-bottom: 2em;
+  }
+  .social-row {
+    margin-bottom: 2em;
+    text-align: center;
+    ul {
+      li {
+        a {
+          font-family: @font-futura;
+          border-radius: 2px;
+          i {
+            margin-right: 3px;
+          }
+        }
+        a:hover,
+        a:active,
+        a:focus {
+          color: #fff;
+        }
+      }
+    }
+    @media @bs-xs {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+/* Profile */
+.profile-image {
+  display: none;
+}
+
+.profileContent {
+  @media @bs-xs {
+    padding: 0;
+  }
+}
+
+#profile-pledges {
+  @media @bs-xs {
+    padding: 0;
+  }
+}
+
+#profile-donations-empty {
+  @media @bs-xs {
+    padding: 1em;
+  }
+}
+
+.profile-section-phone,
+.profile-section-email {
+  @media @bs-sm {
+    width: 60%;
+  }
+}
+
+.profile-section-phone {
+  .k-maskedtextbox {
+    .k-icon {
+      display: none;
+    }
+  }
+}
+
+.k-panelbar > li.k-state-default > .k-link, .k-tabstrip-items .k-state-default .k-link {
+  color: @brand-black;
+}
+
+#profile-socialId {
+  color: @brand-grey-200;
+  font-size: @text-small;
+  margin-bottom: 0;
+  > p {
+    margin-bottom: 0;
+  }
+}
+
+.k-widget.k-maskedtextbox {
+  box-shadow: none;
+  border-radius: 2px;
+  height: 43px;
+  border: none;
+}
+
+#profile-donations {
+  @media @bs-xs {
+    padding: 0;
+  }
+}
+
+.profile-section-email {
+  .input-group {
+    display: block;
+  }
+}
+
+.profile-info {
+  #profile-title {
+    font-size: @text-regular;
+    margin-bottom: 0;
+  }
+  #profile-role {
+    margin-bottom: 0;
+  }
+}
+
+.gh-profile {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+.profile-list {
+  li {
+    a {
+      font-size: @text-regular;
+      color: @primary-50;
+    }
+  }
+}
+
+/* MFM Page */
+.mfmView {
+  #mfm-video {
+    //background: url(https://res.cloudinary.com/hyjvcxzjt/image/upload/v1494620187/bff/mfm-placeholder.png) top center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    color: #fff;
+    h1 {
+      color: #fff;
+    }
+  }
+  #mfm-video.hidden {
+    padding: 0;
+  }
+  #mfmPledgeBlock {
+    padding: 1em;
+    background-color: @brand-grey-50;
+    border: 1px solid @brand-grey-100;
+    border-radius: 2px;
+    button {
+      line-height: 20px;
+      i {
+        font-size: 1em;
+        vertical-align: bottom;
+      }
+      width: 100%;
+      background-color: @primary-50;
+      color: #fff;
+      font-size: @text-large;
+      padding: 1em 2em;
+      //text-transform: uppercase;
+      font-family: @font-museo;
+    }
+    button:hover {
+      background-color: @primary-200;
+    }
+    .ghp-pledge-title {
+      font-size: @text-title-3;
+      margin-top: 0;
+    }
+    .ghp-pledge-action {
+      padding-bottom: 1em;
+    }
+    .gh-pledge-custom {
+      img {
+        height: 1.5em;
+        width: 1.5em;
+        margin-right: 1em;
+        display: inline-block;
+        line-height: 27px;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+      }
+      li {
+        margin: 0.75em 0;
+        line-height: 27px;
+      }
+    }
+    .ghp-pledge-description {
+      padding-bottom: 1em;
+    }
+    .ghp-pledge-thankyou {
+      margin-top: 1rem;
+    }
+    .ghp-share {
+      margin-top: 1rem;
+      hr {
+        background: @brand-grey-200;
+      }
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      ul li {
+        a {
+          font-size: @text-small !important;
+          @media @bs-xs {
+            width: 100%;
+            margin-bottom: 1em;
+          }
+        }
+      }
+      @media @bs-xs {
+        ul li {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .mfmView-playBtn {
+    margin-top: 2em;
+    img {
+      height: 1em;
+      width: 1em;
+      display: inline-block;
+      line-height: 30px;
+      vertical-align: sub;
+      margin-right: 0.25em;
+    }
+    border-radius: 2px;
+    padding: 0.25em 2em;
+    line-height: 30px;
+    font-size: @text-regular;
+    color: #fff;
+    border:2px solid #fff;
+    background-color: transparent;
+    font-family: @font-futura;
+    text-transform: uppercase;
+  }
+  .mfmView-playBtn:hover,
+  .mfmView-playBtn:active {
+    background-color: rgba(255,255,255,0.25);
+  }
+  .mfm-video-player {
+    padding: 0 !important;
+    p {
+      text-align: center;
+    }
+    button.close {
+      margin-top: 1em;
+      float: none;
+      font-family: @font-futura;
+      text-align: center;
+      font-size: @text-small;
+    }
+  }
+  #mfm-content {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+  .mfm-cite {
+    font-size: @text-small;
+    > a {
+      font-size: @text-regular;
+
+    }
+  }
+  #mfm-pledge {
+    @media @bs-md {
+      padding: 4em 0;
+    }
+    @media @bs-sm {
+      padding: 2em 0 4em;
+    }
+    @media @bs-xs {
+      padding: 0 0 4em;
+    }
+  }
+  .ghp-pledge-btn {
+    @media @bs-xs {
+      font-size: @text-regular !important;
+      //padding: inherit !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+
+    }
+  }
+}
+
+.faqView {
+  .faq-item {
+    margin-bottom: 2em;
+    p:first-child {
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+  }
+  .faq-cite {
+    font-size: @text-small;
+  }
+}
+
+.contact-address {
+  i {
+    font-size: @text-regular;
+  }
+}
+
+/* temp styles from Don */
+
+#indexSignInBlock {
+  background-color: #137b3d;
+  color: #fff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  min-height: 256px;
+}
+.gh-signinblock-title {
+  color: #fff;
+  text-transform: uppercase;
+
+}
+
+.gh-signinblock-description {
+  color: #fff;
+
+}
+
+.privacy-list {
+  li {
+    text-transform: capitalize;
+  }
+}
+
+#footer-social-list {
+  li {
+    a {
+      background-color: @brand-grey-100;
+      color: @brand-grey-300;
+    }
+    a:hover {
+      background-color: @brand-grey-200;
+    }
+  }
+}
+
+.pledgeInfo-label {
+  //width: 100%;
+}
+.pledgeInfo-required {
+  text-align: right;
+  color: @brand-grey-200;
+  font-size: @text-small;
+  margin-top: 0.55em;
+}
+
+.pac-container {
+  background-color: #FFF;
+  z-index: 2000;
+}
+
+.form-control-feedback {
+  z-index: 2001;
+  top: 6px;
+  display: none;
+}
+
+.k-tabstrip-wrapper {
+  box-shadow: none !important;
+  .k-header {
+    border: none;
+  }
+}
+.nav-pills>li>a {
+  border-radius: 2px;
+}
+
+#profile-socialId {
+  margin-bottom: 0;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+  background-color: @primary-50;
+}
+
+.has-success.has-feedback {
+  span.form-control-feedback {
+    display: inline-block;
+  }
+}
+
+.modal-header .close {
+  opacity: 1;
+  color: #fff;
+}

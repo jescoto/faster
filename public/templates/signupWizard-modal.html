@@ -1,0 +1,183 @@
+
+<!-- Standard SignUp Wizard view -->
+<div class="modal" id="signupWizard-modal" tabindex="-1" role="dialog" aria-labelledby="signupWizard-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="signupWizardModal.close()" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <p class="modal-title">Account Setup</p>
+                <h3 id="signupWizard-siteMessage"></h3>
+            </div>
+            <div class="modal-body">
+
+                <div id="signup-smartwizard">
+                    <ul>
+                        <li class="ghp-name signup-li" data-tab="name">
+                            <a href="#signup-name">Name<br/><small>You...</small></a>
+                        </li>
+                        <li class="ghp-email signup-li" data-tab="email">
+                            <a href="#signup-email">Email<br/><small>Get important updates</small></a>
+                        </li>
+                        <li class="ghp-address signup-li" data-tab="address">
+                            <a href="#signup-address">Address<br/><small>Get local information</small></a>
+                        </li>
+                        <li class="ghp-phone signup-li" data-tab="phone">
+                            <a href="#signup-phone">Phone<br/><small>Enable SMS Messages</small></a>
+                        </li>
+                        <li class="ghp-organization signup-li" data-tab="organization">
+                            <a href="#signup-organization">Organization<br/><small>Engage at work</small></a>
+                        </li>
+                        <li class="ghp-diet signup-li" data-tab="diet">
+                            <a href="#signup-diet">Diet Preferences<br/><small>Your food, your passion</small></a>
+                        </li>
+                        <li class="ghp-thank-you" data-tab="thank-you">
+                            <a href="#signup-thankyou">Thank You!<br/><small>You are the solution</small></a>
+                        </li>
+                    </ul>
+
+                    <div>
+                        <div id="signup-name" class="ghp-name">
+                            <h2>Name</h2>
+                            <p>Tell us who you are and what you'd prefer to be called.</p>
+                            <hr>
+                            <div class="form-group">
+                                <label for="signup-nameInput">Name</label>
+                                <input id="signup-nameInput" type="text" class="form-control"  data-bind="value: name"/>
+                            </div>
+                        </div>
+
+                        <div id="signup-email" class="ghp-email">
+                            <h2>Email</h2>
+                            <p>We use your email to help you recover your account and send you information and updates that
+                                you're requested.  We never share or sell your information to anyone!     </p>
+                            <hr>
+                            <div class="form-group">
+                                <label class="control-label" for="signup-emailInput">Email</label>
+                                <input id="signup-emailInput" type="email" class="form-control" data-bind="value: email" placeholder="me@domain.com"/>
+                                <span id="signup-emailError" class="signup-validation help-block"></span>
+                                <span id="signup-emailNewsletter" class="signup-validation help-block"></span>
+                            </div>
+
+                        </div>
+
+                        <div id="signup-address" class="ghp-address">
+                            <h2>Address</h2>
+                            <p>We use your address to personalize your experience based on your location: stores, legislation and your representatives.</p>
+                            <hr>
+                            <div class="form-group">
+                                <label for="signup-addressInput">Address  <button class="btn-sm" type="button" onclick="signupWizardModal.locateMe()">
+                                    <i class="material-icons">my_location</i>
+                                    Locate Me
+                                </button> </label>
+                                <input id="signup-addressInput" type="text" class="form-control"  data-bind="value: address"/>
+                            </div>
+                            <div id="signup-addressError" class="signup-validation hidden">
+
+                            </div>
+                        </div>
+
+                        <div id="signup-phone" class="ghp-phone">
+                            <h2>Phone</h2>
+                            <p>If you're a mobile person, we can send you information you request right to your phone via SMS and MMS</p>
+                            <hr>
+                            <div class="form-group">
+                                <label for="signup-phoneInput">Mobile Phone</label> </br>
+                                <input id="signup-phoneInput" type="phone" class="form-control" data-bind="value: phone"/>
+                            </div>
+                            <div id="signup-phoneError" class="signup-validation hidden">
+
+                            </div>
+                        </div>
+
+                        <div id="signup-organization" class="ghp-organization">
+                            <h2>Organization</h2>
+                            <p>Connect you career to your passion for Animal Welfare</p>
+                           <hr>
+                            <div class="form-group">
+                                <label for="signup-organizationInput">Organization Name</label>
+                                <input id="signup-organizationInput" type="text" class="form-control"  data-bind="value: organizationName"/>
+                                <div id="signup-organizationError" class="signup-validation help-block"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signup-organizationType">Organization Type </label><br>
+                                <select id="signup-organizationType" class="form-control" data-bind="value: organizationType">
+                                    <option>Education</option>
+                                    <option>Government</option>
+                                    <option>Commercial</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-organizationRole">Organization Role </label><br>
+                                <select id="signup-organizationRole" class="form-control" data-bind="value: organizationRole">
+                                    <option>Employee / Staff</option>
+                                    <option>Customer / Student</option>
+                                    <option>Professor / Teacher</option>
+                                    <option>Executive / Management</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div id="signup-diet" class="ghp-diet">
+                            <h2>Diet</h2>
+                            <p>Share your diet preferences to personalize your recommendations</p>
+                            <hr>
+                            <div class="form-group site-omnivore">
+                                <label for="signup-diet-primaryDiet">Primary Diet</label>
+                                <br>
+                                <select id="signup-diet-primaryDiet" class="form-control" data-bind="value: primaryDiet" >
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signup-diet-diningList">Dining </label>
+                                <select id="signup-diet-diningList" class="form-control" data-bind="value: diningList">
+                                    <option>Dine Out</option>
+                                    <option>Order In</option>
+                                    <option>Cook At Home</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signup-diet-dietRestrictions">Dietary Restrictions</label>
+                                <select id="signup-diet-dietRestrictions" class="form-control" data-bind="value: dietRestrictions">
+                                    <option>Gluten-Free</option>
+                                    <option>Diabetic</option>
+                                    <option>Halal</option>
+                                    <option>Kosher</option>
+                                    <option>Low Carb</option>
+                                    <option>Low Sugar</option>
+                                    <option>Low Protein</option>
+                                    <option>Organic</option>
+                                    <option>Lactose-Free</option>
+                                    <option>Paleo</option>
+                                    <option>Peanut</option>
+                                    <option>ShellFish</option>
+                                    <option>Soy</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-diet-favoriteCuisines">Favorite Cuisines </label>
+                                <select id="signup-diet-favoriteCuisines"  class="form-control"  data-bind="value: favoriteCuisines" > </select>
+                            </div>
+
+                        </div>
+
+                        <div id="signup-thankyou" >
+                            <h2>Thank You
+                            </h2>
+                            <p>The information you shared will help us personalize your experience.  Together we can make a real difference in Animal Welfare </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer hidden">
+                <button class="btn btn-primary" onclick="signupWizardModal.close();">Finished</button>
+            </div>
+        </div>
+    </div>
+</div>

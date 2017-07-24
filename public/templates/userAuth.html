@@ -1,0 +1,150 @@
+<div id="gh-user-auth" class="fade modal" tabindex="-1" role="dialog" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="gh-auth-siteInfo">
+                <img src="images/logo.png"/>
+                <p>A Farm Forward Project</p>
+            </div>
+            <div class="modal-body">
+                <div id="gh-auth-tabs">
+                    <ul>
+                        <li id="gh-auth-tab-join">
+                            <span data-bind="text: action"></span>
+                        </li>
+                        <li id="gh-auth-tab-signIn">Sign in</li>
+                        <button class="close" type="button" aria-label="Close" id="gh-auth-close" onclick="userView.closeSignUp();">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </ul>
+                    <div class="modal-signIn-new">
+                        <div class="alert alert-danger hidden" role="alert" id="signUp-form-error"></div>
+                        <div class="gh-auth-section-input">
+                            <form id="signUp-form" role="form" data-toggle="validator" class="gh-auth-section" novalidate>
+                                <div class="gh-auth-type-break">
+                                    <div class="line"></div>
+                                    <div class="line-text">OR</div>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signUp-username">Email Address</label>
+                                    <input id="signUp-username" type="email" class="form-control" placeholder="me@example.com" required data-error="Enter a valid email address" data-bind="value: userEmail" />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="gh-auth-email-signup animated">
+                                    <div class="form-group">
+                                        <label for="signUp-password">
+                                            Password
+                                        </label>
+                                        <input id="signUp-password" type="password" class="form-control" required data-required-error="Enter a password" data-bind="value: userPassword"/>
+                                        <div id="signUp-password-confirm" class="gh-confirm-password hidden">
+                                            <p class="text-clamp" data-bind="{text: userPassword, visible: showPassword}"></p>
+                                            <a class="pull-right" onclick="profileView.togglePasswordMask();" data-bind="{text: showPassBtn, css: {ghPass: showPassword}}">Hide</a>
+                                        </div>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="signUp-fullname">Name (Required)</label>
+                                        <input id="signUp-fullname" type="text" class="form-control" placeholder="Full Name" required data-required-error="Name is required" data-bind="value: userFullName"/>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block btn-lg" data-bind="text: joinBtnText">
+                                        Join
+                                    </button>
+                                </div>
+
+                            </form>
+                            <div class="gh-auth-section">
+                                <label class="helper-label">Or</label>
+                                <button type="button" class="btn btn-facebook btn-social-login btn-block" onclick="userView.loginViaFacebook()">
+                                    <i class="fa fa-facebook-f"></i>
+                                    <span data-bind="text: joinText"></span> Facebook
+                                </button>
+                                <button type="button" class="btn btn-twitter btn-social-login btn-block" onclick="userView.loginViaTwitter()">
+                                    <i class="fa fa-twitter"></i>
+                                    <span data-bind="text: joinText"></span> Twitter
+                                </button>
+                                <button type="button" class="btn btn-google btn-social-login btn-block" onclick="userView.loginViaGoogle()">
+                                    <i class="fa fa-google-plus"></i>
+                                    <span data-bind="text: joinText"></span> Google
+                                </button>
+                                <button type="button" class="btn btn-live btn-social-login hidden" onclick="userView.loginViaLiveId()">
+                                    <i class="fa fa-windows"></i> Live ID
+                                </button>
+                                <button class="btn btn-linkedin btn-social-login hidden" type="button" onclick="ux.notify('Coming Soon');">
+                                    <i class="fa fa-linkedin"></i> Linkedin
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <p class="legal">
+                            By signing up you are agreeing to our  <a href="#" onclick="ux.openLegal();"> Terms and Conditions </a> and <a href="#" onclick="ux.openLegal();">Privacy Policy</a>.
+                        </p>
+
+
+                    </div>
+                    <div class="row" style="display: none;">
+                        <div class="alert alert-danger hidden" role="alert" id="signIn-form-error"></div>
+                        <div class="gh-auth-section-input">
+                            <form id="signIn-form" role="form" data-toggle="validator" class="gh-auth-section" novalidate>
+                                <div class="gh-auth-type-break">
+                                    <div class="line"></div>
+                                    <div class="line-text">OR</div>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signIn-username">Email Address</label>
+                                    <input id="signIn-username" type="email" class="form-control"  placeholder="me@example.com" required data-error="Enter a valid email address" data-bind="value: userEmail"/>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group" id="signIn-form-password">
+                                    <label for="signIn-password">Password
+                                        <a id="gh-passwordReset-btn" onclick="userView.toggleForgotPassword(event)">Forgot Password?</a>
+                                    </label>
+                                    <input id="signIn-password" type="password" class="form-control" required data-error="Password is required" data-bind="value: userPassword" />
+                                    <div class="gh-confirm-password hidden">
+                                        <p class="text-clamp" data-bind="{text: userPassword, visible: showPassword}"></p>
+                                        <a class="pull-right" onclick="profileView.togglePasswordMask();" data-bind="{text: showPassBtn, css: {ghPass: showPassword}}">Hide</a>
+                                    </div>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group hidden" id="signIn-reset-action">
+                                    <button type="button" class="btn btn-primary " onclick="userView.getUserAccountType(event);">Send</button>
+                                    <button type="button" class="btn btn-default" onclick="userView.toggleForgotPassword();">Cancel</button>
+                                </div>
+                                <div class="form-group" id="signIn-form-actions">
+                                    <button type="submit" class="btn btn-primary btn-block" data-bind="text: signInBtnText">Sign In</button>
+                                </div>
+                            </form>
+                            <div class="gh-auth-section">
+                                <label class="helper-label">Or</label>
+                                <button type="button" class="btn  btn-facebook btn-social-login btn-block" onclick="userView.loginViaFacebook()">
+                                    <i class="fa fa-facebook-f"></i>
+                                    <span data-bind="text: signInText"></span> Facebook
+                                </button>
+                                <button type="button" class="btn btn-twitter btn-social-login btn-block" onclick="userView.loginViaTwitter()">
+                                    <i class="fa fa-twitter"></i>
+                                    <span data-bind="text: signInText"></span> Twitter
+                                </button>
+                                <button type="button" class="btn btn-google btn-social-login btn-block" onclick="userView.loginViaGoogle()">
+                                    <i class="fa fa-google-plus"></i>
+                                    <span data-bind="text: signInText"></span> Google
+                                </button>
+                                <button type="button" class="btn btn-live btn-social-login hidden" onclick="userView.loginViaLiveId()">
+                                    <i class="fa fa-windows"></i> Live ID
+                                </button>
+                                <button class="btn btn-linkedin btn-social-login hidden" type="button" onclick="ux.notify('Coming Soon');">
+                                    <i class="fa fa-linkedin"></i> Linkedin
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+
+    </div>
+
+</div>

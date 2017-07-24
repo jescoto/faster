@@ -1,0 +1,178 @@
+<!-- Product Editor Template -->
+<script id="productEditor" type="text/x-kendo-template" data-model="productEditor.activeObj">
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-secondary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#/brand">
+                                <i class="material-icons">arrow_back</i> Back to Brands
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle bpstaff" data-toggle="dropdown">
+                                <i class="material-icons staff-icon">account_circle</i>
+                                Staff tools <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!--<li>
+                                    <button class="listBtn" type="button" onclick="blogView.newBlog()">
+                                        <i class="material-icons">add</i>
+                                        Add blog post
+                                    </button>
+                                </li>-->
+                                <li>
+                                    <button class="listBtn" type="button" onclick="productEditor.editBrand()">
+                                        <i class="material-icons">edit</i>
+                                        Edit Brand
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="view">
+                <div>
+                    <h2><i class="material-icons staff-icon">account_circle</i> Product Editor</h2>
+                    <p>Add, delete and edit  <strong><span data-bind="text:brandName"></span>'s</strong> products...</p>
+                    <div class="row">
+                        <div class="col-sm-3" >
+                            <img data-bind="attr: {src: brandImageUrl}" class="img-rounded center-block" />
+                        </div>
+                        <div class="col-sm-9">
+                            <div >
+                                <div style="font-size: 1.6em" data-bind="text: brandName"></div>
+                                <div style="font-size: 1.2em; font-weight: 600;" data-bind="text: category"></div>
+                                <div>Grade:  <strong> <span data-bind="text: gradeName"></span></strong></div>
+                                <div>Score:  <strong> <span data-bind="text: gradeScore"></span></strong></div>
+                            </div>
+                            <a role="button" class="actionIcon" data-bind="visible: brandUrl, attr: {href: brandUrl}" target="_blank" data-toggle="tooltip" data-placement="right" title="View product website">
+                                <i class="material-icons">open_in_new</i> Product Web Site
+                            </a>
+                            <a role="button" class="actionIcon" target="_blank" data-bind="visible: searchUrl, attr: {href: searchUrl}" data-toggle="tooltip" data-placement="right" title="Search On Google">
+                                <i class="material-icons">search</i>  Google Search
+                            </a>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div>
+                        <div id="productEditor-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="productEditModal" class="fade modal" role="dialog" style="display: none;" tabindex="-1" data-model="productEditModal.activeObj">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                    <div class="row bpstaff hidden">
+                        <div class="col-sm-12">
+                            <h4>
+                                <i class="material-icons staff-icon">account_circle</i>
+                                Farm Forward Staff
+                            </h4>
+                            <button type="button" class="btn btn-primary"  onclick="brandEditor.editProducts()">Edit Products</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="row">
+                            <div  class="col-sm-12 col-md-6 col-md-offset-3 productModal-img">
+                                <img data-bind="attr: {src: imageUrl}" class="img-rounded center-block" />
+                                <div style="border-top: 16px;">
+                                    <input id="productEditModal-imageUpload" type="file"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <form>
+                            <div class="form-group">
+                                <label for="productEditModal-brandId">Brand Id</label>
+                                <input id="productEditModal-brandId" type="text" class="form-control"  data-bind="value : brandId" readonly />
+                            </div>
+                            <div class="form-group">
+                                <label for="productEditModal-name">Name
+                                </label>
+                                <input id="productEditModal-name" type="text" class="form-control"  data-bind="value : name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="productEditModal-category">Rating Category</label>
+                                <select id="productEditModal-category" class="form-control" data-bind="value: category">
+                                    <option>Best</option>
+                                    <option>Better</option>
+                                    <option>Avoid</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="productEditModal-gradeName">Grade</label>
+                                <select id="productEditModal-gradeName" class="form-control" data-bind="value: gradeName">
+                                    <option>A</option>
+                                    <option>A-</option>
+                                    <option>B+</option>
+                                    <option>B</option>
+                                    <option>B-</option>
+                                    <option>C+</option>
+                                    <option>C</option>
+                                    <option>C-</option>
+                                    <option>D+</option>
+                                    <option>D</option>
+                                    <option>D-</option>
+                                    <option>F</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="productEditModal-gradeScore">Grade Score</label>
+                                <input id="productEditModal-gradeScore" type="number" min="0" max="12" step='1' class="form-control"  data-bind="value : gradeScore" />
+                            </div>
+                            <div class="form-group">
+                                <label for="productEditModal-productCategories">Product Categories</label>
+                                <select id="productEditModal-productCategories" class="form-control" multiple="multiple" data-bind="value: productCategories">
+                                    <option>Chicken</option>
+                                    <option>Eggs</option>
+                                    <option>Turkey</option>
+                                    <option>Plant-Based</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productEditModal-url">WebSite
+                                    <a role="button" class="actionIcon" data-bind="visible: brandUrl, attr: {href: brandUrl}" target="_blank" data-toggle="tooltip" data-placement="left" title="View product website">
+                                        <i class="material-icons">open_in_new</i>
+                                    </a>
+                                    <a role="button" class="actionIcon" target="_blank" data-bind="visible: searchUrl, attr: {href: searchUrl}" data-toggle="tooltip" data-placement="left" title="Search On Google">
+                                        <i class="material-icons">search</i>
+                                    </a>
+                                </label>
+                                <input id="productEditModal-url" type="url" class="form-control"  data-bind="value : brandUrl" />
+                            </div>
+                            <hr/>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer" >
+                    <button class="btn-block btn-primary" type="button" onclick="productEditModal.doSave()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</script>
